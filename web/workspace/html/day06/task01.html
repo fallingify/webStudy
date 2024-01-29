@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: whitesmoke;
+            height: 1000px;
+        }
+
+        header {
+            background-color: dimgrey;
+            color: white;
+            padding: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            position: sticky; /* sticky로 변경 */
+            top: 0; /* 상단에 고정되도록 설정 */
+            z-index: 2;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+
+        main {
+            background-color: white;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            height: 1000px;
+        }
+
+        section {
+            background-color: whitesmoke;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid gainsboro;
+        }
+
+        footer {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Section 1</h2>
+            <p>첫번째 섹션입니다</p>
+        </section>
+        <section>
+            <h2>Section 2</h2>
+            <p>두번째 섹션입니다</p>
+        </section>
+    </main>
+    <footer>
+        <p>Footer</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display01</title>
+    <style>
+        .span--inline{
+            background-color: blanchedalmond;
+            font-size: 20px;
+            margin: 10px;
+            padding: 10px;
+            border : 1px solid red;
+            
+            /* width: 200px; */
+            /* 인라인 요소는 컨텐츠 영역의 크기 조절이 불가능하다 */
+            /* height: 100px; */
+            line-height: 100px;
+            /* 인라인 요소는 line-height 속성으로 줄 간격을 조절할 수 있다 */
+            letter-spacing: 10px;
+            /* letter-spacing으로 글자간 간격을 조절할 수 있다
+            word-spacing 으로 단어간 간격을 조절할 수 있다 */
+
+        }
+
+        .span--block{
+            display: block;
+            /* display를 block으로 주면 요소가 블록요소로 변경된다 */
+            background-color: gray;
+            color: white;
+            border:1px solid blue;
+            font-size: 25px;
+            font-weight: bold;
+            
+            width: 100px;
+            height: 100px;
+            /* 블록요소는 컨텐츠의 크기조절이 가능하다 */
+            margin: 10px auto;
+        }
+        
+        .div--inline-block{
+            background-color: yellow;
+            border: 1px soild red;
+            
+            display: inline-block;
+            /* 인라인 블록요소는 요소의 크기만큼만 영역을 차지하여
+            인라인요소처럼 옆에 다른 요소가 올 수 있다 */
+
+            width: 100px;
+            height: 100px;
+            /* 인라인 블록은 블록 요소처럼 컨텐츠 크기를 조절할 수 있다 */
+            margin: 10px auto;
+            /* 인라인 블록은 마진 auto를 이용한 중앙정렬이 불가능하다 */
+        }
+        
+        .div--none{
+            background-color: aqua;
+            border : 1px solid black;
+
+            width: 100px;
+            height: 100px;
+
+            display: none;
+            /* none을 주면 요소가 사라진다
+            단순히 안보이는 것이 아니라 차지하고 있던 영역까지 사라진다 */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>dispaly: inline</h1>
+    <!-- span{span $}*5 -->
+    <span class="span--inline">span 1</span>
+    <span class="span--inline">span 2</span>
+    <span class="span--inline">span 3</span>
+    <span class="span--inline">span 4</span>
+    <span class="span--inline">span 5</span>
+
+    <h1>dispaly: block</h1>
+    <span class="span--block">span 1</span>
+    <span class="span--block">span 2</span>
+    <span class="span--block">span 3</span>
+    <span class="span--block">span 4</span>
+    <span class="span--block">span 5</span>
+
+    <h1>display: inline-block</h1>
+    <!-- div.div--inline-block{div$}*5 -->
+    <div class="div--inline-block">div1</div>
+    <div class="div--inline-block">div2</div>
+    <div class="div--inline-block">div3</div>
+    <div class="div--inline-block">div4</div>
+    <div class="div--inline-block">div5</div>
+
+    <h1>display: none</h1>
+    <!-- div.div--none{div$}*5 -->
+    <div class="div--none">div1</div>
+    <div class="div--none">div2</div>
+    <div class="div--none">div3</div>
+    <div class="div--none">div4</div>
+    <div class="div--none">div5</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

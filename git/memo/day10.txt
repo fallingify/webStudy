@@ -1,0 +1,213 @@
+git day01
+
+버전version
+	프로그램을 수정하여 개선된 것
+	버전1~ 시작하며, 수정이 이뤄지며 버전 숫자가 늘어남
+	
+	1.0 -> 1.1 -> 1.2
+	1.0 -> 2.0 
+
+버전번호 
+	소프트웨어나 프로젝트에서 업데이트레벨을 식별하는데 사용됨
+	메이저버전번호.마이너버전번호.패치버전번호
+
+
+버전관리(Version control) 
+	버전 별로 기록하고 관리하는 것을 의미
+	버전을 관리하면 백업과 복구가 용이하고, 언제 누가 해당 버전을 만들고 수정했는지 알기 쉽다
+		
+로컬 버전 관리 
+	로컬이라는 내 컴퓨터에서 버전을 관리하는 방식
+	작업하는 내용물을 현재시점으로 복사해두고 압축하여 관리함
+	간단하게 누구나 할 수 있으므로 자주사용하나 잘못삭제수정 많음
+	
+버전관리시스템(Version Control System)
+	파일의 변환 내용을 기록하고 관리하고 추적할 수 있도록 도와주는 소프트웨어임
+	Git
+
+Git과 Github
+	Git 
+		여러버전관리시스템 중 하나이다(로컬에서 사용)
+		git만의 방식으로 버전별 파일 저장, 관리
+		빠르고 버전을 분산하여 저장하므로 안전
+		사용방법이 까다로움
+	Github
+		Git을 저장하고 공유할 수 있는 서버를 제공하는 사이트 중 하나
+		Github서버에 내 Git을 저장하면 다른 pc에서도 버전관리가능
+		협업가능
+	
+	깃을 모른다? 큰일남.
+	
+git구조
+	git을 사용하여면 기본구조를 알아야한다
+	크게 3가지영역으로 나뉘며 각 영역에 순차적으로 파일을 올려준다
+		
+	
+1) workDirectory작업공간
+	내가 작업하는 공간을 working directory로 설정해둔다
+	설정하게 되면 해당폴더에 .git이라는 폴더가 생긴다
+	- 파일의 상태
+		working directory에 있는 파일들은 아직 git관리대상아님
+		관리대상이 아닌 파일을 untracked라고 함
+
+2) stagingArea
+	스테이징영역에 있는 파일은 git의 관리대상이다.
+	수정, 추가, 삭제 등 이 영역 파일의 변경사항을 git이 저장하고 관리한다. 
+	
+	수정사항을 바로 local repository에 커밋하면 실수가 많아질것이기때문에
+	스테이징 영역에서 우선 수정내용들을 검토하고 확인 후 로컬 저장소에 커밋한다
+	- 파일 상태 
+		스테이징 영역에 파일을 올리는 것을 staging
+		관리대상파일을 tracked상태라고 함
+	- tracked 상태의 종류
+		unmodified : 수정이 되지 않는 상태
+		modified : 스테이징 영역에 들어온 파일 중에 수정된 상태
+		staged : 로컬 저장소에 올릴 준비가 된 상태
+		
+3) localRepository
+	스테이징 영역에서 staged 상태의 파일을 commit하게되면 로컬 저장소에 저장된다
+	로컬저장소에 commit을 한다는 것은 스테이징영역에 수정사항을 확정짓는것을 의미한다
+	새로운 버전하나를 만들고 저장한 것이다
+	내가 원할 때 언제든 저쟝한 버전으로 commit한 시점으로 돌아올 수 있다. 
+	staged상태가 아니라면 commit이 되지 않는다. 
+
+
+git설치
+	설치여부 확인 cmd > git
+	64비트 설치(resource)
+
+git사용하기
+	1. CLI(Command Line Interface)	
+		cmd나 terminal을 사용하여 명령어 사용한다.
+		GUI로 사용하는 것보다는 어렵지만 git의 모든 기능을 사용하기 위해서는 CLI를 사용하는 것이 
+		좋다
+	2. GUI(Graphin User Interface)
+		일반 프로그램처럼 눈으로 보고 버튼을 눌러 사용한다. 
+		사용방법이 편리하기는 하지만 단순하게 만들어져 있어서 기능제한있음
+		
+	
+
+
+
+
+
+	git config --global user.name "ASDASDA"
+	git config --global user.email "adfadsf@dafsd.com"
+	git config --list 
+	
+
+Git기본명령어
+	git명령어는 앞에 git을 붙이고 사용한다
+
+[깃헙에 계정연동]
+config	
+	환경설정하는 명령어
+	git설치 후 반드시 다음과 같은 초기설정을 해야한다
+	git-config --global user.name "git-hub이름"
+	git-config --global user.email "git-hub이메일주소"
+
+	--global 옵션으로 설정한 내용은 설치 후 딱 한번만 하면 된다
+	git config --list로 내계정이 맞는지 확인한다. 	설정내용을 확인할 수 있으며 esc :wq
+	q를 눌렀는데 안되는경우 : esc
+
+[로컬에 깃파일생성]	
+git init
+	현재 위치에 맞는 폴더를 working directory(깃 저장소)로 만든다. 
+	.git이라는 숨김 파일이 생성된다. 
+	(보기 > 숨김파일보기 => 항상 체크)
+	
+
+	 git commit -m "add test01.txt add test02.txt"
+
+git status
+	현재 깃 저장소에 있는 파일들의 상태를 확인
+
+[스테이징]	
+git add 파일명
+git add .
+	작업폴더의 파일을 스테이징 시킨다 
+	수정된 파일을 staged 상태로 만들기 위해서 사용한다
+	파일명에 . 은 현재경로의 모든 파일을 스테이징
+[언스테이징]
+git rm --cached 파일명
+	add로 스테이징시킨 파일을 스테이징영역에서 내보내기
+
+[커밋]
+git commit -m "커밋할 메시지"
+	스테이징영역에 파일들의 변경사항을 확정하고 새로운 버전을 로컬 저장소에 저장
+	커밋할 때 변경사항에 대한 메시지를 작성하는 것이 좋음
+	(메시지 작성안하면 어떤 시점으로 가야할 지 알수없음)
+
+git commit --amend 
+	방금전 커밋한 메시지 수정하는 명령어(vim편집기열림)
+	편집기 방향키는 h j k i (vi) / 
+	편집모드 : i, a
+	명령어모드 : esc + 
+	저장탈출 명령어:  :w엔터저장 , q나가기 !강제
+	입력모드 : 수정할 수 있다
+		i는 현재 커서가 있는 곳에서 작성
+		a는 현재커서 다음위치에서 작성
+		o는 현재커서 아래 위치에서 작성
+		
+저장소(repository)의 종류
+1. 로컬 저장소
+	개인pc에서 사용하는 저장소
+2. 원격 저장소remote
+	github사이트를 이용해서 어떤 서버에 올려놓고 사용하는 저장소
+	주로 협업목적
+
+[branch수정]
+git branch확인 수정하기
+git branch 
+	현재 로컬의 브런치들을 확인
+git branch -m master main 
+	master 브런치명을 main으로 변경한다
+git branch -D 브런치 명
+	브런치를 삭제한다
+
+[git remote 로컬과 레포지토리연결]
+원격 저장소와 관련된 명령어
+git remote add origin 레포지토리주소
+	원격 저장소를 내 로컬과 연결하는 명령어 
+git remote -v 
+	원격저장소와 연결이 잘되어있는지확인하는 명령어 
+
+git push origin main
+git remote rm origin 
+
+
+	
+[token]
+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	
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+			
+	
+	

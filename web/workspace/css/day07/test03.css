@@ -1,0 +1,36 @@
+div {
+    border: 1px solid black;
+    background-color: antiquewhite;
+    color: purple;
+    font-size: 25px;
+    margin: 10px 0; 
+    width: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+.div1{
+    transform: translate(30px, 30px);
+    /* 양수는 오른쪽 아래로 이동, 음수는 왼쪽 위로이동 
+    양수와 음수에 따라 위치가 다름*/
+
+}
+.div2{
+    transform: scale(2, 0.5);
+    /* x축을 2배로확대 y축을 반 축소 */
+}
+
+.div3{
+    transform: rotate(45deg);
+    /* 45도 각도 시계방향으로 회전, 음수각도로 사용하면 반시계회전 */
+}
+
+.div4:hover{
+    transform: scale(1.5, 1.5);
+    
+}
+
+.div5:hover{
+    transform: rotate(-45deg);
+}

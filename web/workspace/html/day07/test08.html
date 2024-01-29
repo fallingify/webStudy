@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form-input02</title>
+    <style>
+      li {
+        margin: 10px 0;
+      }
+      #id {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>사용자 정보</legend>
+        <ul>
+          <li>
+            <label for="name">이름 : </label>
+            <input type="text" id="name" />
+          </li>
+          <li>
+            <label for="id">id : </label>
+            <input
+              type="text"
+              id="id"
+              placeholder="id는 영문, 숫자로 5글자 이상 작성"
+            />
+          </li>
+          <li>
+            <label for="pw">pw : </label>
+            <input type="password" id="pw" required />
+          </li>
+          <li>
+            <label for="read">
+              <input type="text" id="read" value="readonly" readonly disabled />
+            </label>
+          </li>
+        </ul>
+        <input type="submit" value="보낸다~~" />
+      </fieldset>
+    </form>
+  </body>
+</html>

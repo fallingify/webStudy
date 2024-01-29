@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <form action="">
+        <div>id: <input type="text" placeholder="아이디를 입력해라" /></div>
+        <div>
+          pw: <input type="password" />
+          <div>
+            date:
+            <input type="date" />
+          </div>
+          <div>
+            제출<input type="submit" value="완료" />
+            <!-- submit 버튼을 누르면 form에 있는 모든 데이터를 action속성의 url전송한다.  -->
+          </div>
+          <div>
+            <input type="file" />
+          </div>
+          <div><input type="hidden" name="test" value="test" /></div>
+          <div>
+            <div>radio</div>
+            <!-- radio버튼은 name속성을 같은 값으로 지정해야만 하나만 선택하게 할 수 있다. 
+                name이 다르면 둘다 선택할 수 있다. 
+                
+                checked는 페이지 진입시 기본으로 선택됨
+
+                value는 서버에 데이터 전송시 실질적으로 보내지는 값
+             -->
+            선택1 <input type="radio" value="1" name="radio1" checked /> 선택2
+            <input type="radio" value="2" name="radio2" />
+
+            선택3
+            <input type="radio" value="2" name="radio2" />
+          </div>
+        </div>
+        <div>check box :</div>
+        선택1
+        <input type="checkbox" value="1" name="checkbox1" />
+        선택2
+        <input type="checkbox" value="2" name="checkbox1" />
+        선택3
+        <input type="checkbox" value="3" name="checkbox1" />
+        선택4
+        <input type="checkbox" value="4" name="checkbox1" />
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index</title>
+    <style>
+    .box1, .box2, .box3, .box4, .box5, .box6 {
+        position: absolute;
+        border: 1px solid black;
+    }
+
+    .box1 {
+        z-index: 1;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        left: 0;
+        top: 0;
+    }
+
+    .box2 {
+        z-index: 2;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        left: 50px;
+        top: 50px;
+    }
+
+    .box3 {
+        z-index: 3;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        left: 100px;
+        top: 100px;
+    }
+
+   .box4 {
+        z-index: 1; 
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        right: 50px;
+        top: 50px;
+    }
+
+    .box5 {
+        z-index: 2;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        right: 100px;
+        top: 100px;
+    }
+
+    .box6 {
+        z-index: 3; 
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        right: 150px;
+        top: 150px;
+    }
+</style>
+</head>
+<body>
+    <article>
+        <section>
+            <div class="box1">box1</div>
+            <div class="box2">box2</div>
+            <div class="box3">box3</div>
+        </section>
+        <section>
+            <div class="box4">box4</div>
+            <div class="box5">box5</div>
+            <div class="box6">box6</div>
+        </section>
+    </article>
+</body>
+</html>

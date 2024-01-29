@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 2px solid gray;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            margin: 20px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+        }
+
+        .relative-box {
+            background-color: red;
+        }
+
+        .absolute-box {
+            background-color: yellowgreen;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .fixed-box {
+            background-color: blueviolet;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+
+        .sticky-box {
+            background-color: darkorange;
+            position: sticky;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Position 속성 예제</h1>
+
+    <h2>relative</h2>
+    <div class="container">
+        <div class="box relative-box">relative</div>
+    </div>
+
+    <h2>absolute</h2>
+    <div class="container">
+        <div class="box absolute-box">absolute</div>
+    </div>
+
+    <h2>fixed</h2>
+    <div class="container">
+        <div class="box fixed-box">fixed</div>
+    </div>
+
+    <h2>sticky</h2>
+    <div class="container">
+        <div class="box sticky-box">sticky</div>
+    </div>
+</body>
+</html>

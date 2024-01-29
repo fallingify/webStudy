@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float 속성</title>
+    <style>
+      main {
+        height: 300px;
+      }
+
+      .menu {
+        width: 300px;
+        height: 40px;
+        border: 3px solid black;
+        background-color: beige;
+      }
+      .main .left-menu {
+        float: left;
+        width: 50px;
+        height: 260px;
+        border: 2px solid black;
+        background-color: orange;
+      }
+
+      .main .content {
+        float: left;
+        width: 240px;
+        height: 259px;
+        background-color: yellow;
+      }
+
+      .main .content .article {
+        height: 200px;
+        border: 1px solid black;
+        background-color: red;
+      }
+
+      .main .content .comment {
+        height: 50px;
+        border: 2px solid black;
+        background-color: rgb(81, 84, 250);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="menu">menu</div>
+      <div class="main">
+        <div class="left-menu">left menu</div>
+        <div class="content">
+          <div class="article">article</div>
+          <div class="comment">comment</div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

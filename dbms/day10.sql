@@ -1,0 +1,270 @@
+CREATE TABLE WEB_BOOKS( 
+	Book_ID NUMBER PRIMARY KEY,
+	Book_Title VARCHAR2(100),
+	Book_Author varchar2(100)
+);
+
+CREATE TABLE web_BooksPrice( 
+	BP_ID NUMBER PRIMARY KEY,
+	BP_Price number
+);
+
+-- 도서 테이블에 값 추가
+INSERT INTO web_books
+--values(1, '위대한 개츠비', 'F. 스콧 피츠제럴드');
+VALUES
+--(2, '해리포터와 마법사의 돌', 'J.K. 롤링');
+--(3, '1984', '조지오웰');
+--(4, '오만과 편견', '제인 오스틴');
+(5, '데미안', '헤르만 헤세');
+
+-- 도서 가격 테이블에 값 추가
+INSERT INTO WEB_BOOKSPRICE
+VALUES
+--(1, 15000);
+--(2, 18000);
+--(3, 14000);
+--(4, 17000);
+(5, 15000);
+
+
+SELECT * FROM WEB_BOOKSPRICE;
+
+-- 내부조인
+SELECT A.BOOK_ID, A.BOOK_TITLE, A.BOOK_AUTHOR, B.BP_ID
+FROM WEB_BOOKS A INNER JOIN WEB_BOOKSPRICE B
+	ON A.BOOK_ID = B.BP_ID;
+
+SELECT * FROM WEB_BOOKS;
+SELECT * FROM WEB_MEMBERS;
+SELECT * FROM WEB_RENTALS;
+
+CREATE TABLE WEB_MEMBERS( 
+	MEM_ID NUMBER PRIMARY KEY,
+	MEM_NAME VARCHAR2(100),
+	MEM_PHONENUMBER VARCHAR2(100),
+	MEM_EMAIL VARCHAR2(100)
+);
+
+CREATE TABLE WEB_RENTALS( 
+	REN_ID NUMBER PRIMARY KEY,
+	MEM_ID NUMBER,
+	BOOK_ID NUMBER,
+	REN_RENTALSDATE DATE,
+	REN_RETURNDATE DATE,
+	CONSTRAINT FK_MEMBER FOREIGN KEY(MEM_ID) REFERENCES WEB_MEMBERS(Mem_id),
+	CONSTRAINT FK_BOOK FOREIGN KEY(BOOK_ID) REFERENCES WEB_BOOKS(BOOK_ID)
+);
+
+-- 회원테이블 값 추가
+INSERT INTO WEB_MEMBERS 
+VALUES
+--(1, '짱구', '123-456-7890', 'aaa@koreait.com');
+--(2, '유리', '123-456-1111', 'bbb@koreait.com');
+--(3, '철수', '555-123-4567', 'ccc@koreait.com');
+--(4, '훈이', '777-888-9999', 'ddd@koreait.com');
+(5, '맹구', '555-6666-7777', 'eee@koreait.com');
+
+-- 대여 테이블 값 추가
+INSERT INTO WEB_RENTALS
+VALUES
+--(1, 1, 3, TO_DATE('2023-12-11', 'YYYY-MM-DD'), TO_DATE('2023-12-18', 'YYYY-MM-DD'));
+--(2, 2, 1, TO_DATE('2023-12-11', 'YYYY-MM-DD'), TO_DATE('2023-12-18', 'YYYY-MM-DD'));
+--(3, 3, 1, TO_DATE('2023-12-13', 'YYYY-MM-DD'), TO_DATE('2023-12-20', 'YYYY-MM-DD'));
+--(4, 4, 1, TO_DATE('2023-12-20', 'YYYY-MM-DD'), TO_DATE('2023-12-27', 'YYYY-MM-DD'));
+(5, 5, 5, TO_DATE('2023-12-22', 'YYYY-MM-DD'), TO_DATE('2023-12-29', 'YYYY-MM-DD'));
+
+-- 등가조인
+--1. 대여 정보와 책의 저자를 가져오는 등가조인
+SELECT wr.ren_rentalsDate, wb.BOOK_AUTHOR
+FROM WEB_rentals wr INNER JOIN WEB_BOOKS wb ON wr.book_id = wb.BOOK_ID;
+-- 테이블에 별칭을 붙여서 사용할 수 있으며 별칭을 붙히면 별칭으로 이용해야한다
+
+--2. 대여한 책과 반납 날짜를 가져오는 등가조인
+SELECT wb.book_title, wr.REN_RETURNDATE 
+FROM web_rentals wr INNER JOIN web_books wb 
+ON wb.BOOK_ID = wr.BOOK_ID; 
+
+--3. 회원이름과 대여한 책의 제목을 가져오는 등가조인
+SELECT m.mem_name, b.book_title
+FROM WEB_RENTALS r 
+INNER JOIN WEB_MEMBERS m ON r.mem_id = m.MEM_ID
+INNER JOIN WEB_BOOKS b ON r.BOOK_ID = b.BOOK_ID;
+
+-- 비등가 조인
+-- 회원 테이블에 컬럼 추가(JOINUS) => 날짜로
+--1 2023-11-01
+--2 2023-11-15
+--3 2023-11-28
+--4 2023-11-20
+--5 2023-11-16
+ALTER TABLE WEB_MEMBERS
+ADD JOINUS DATE;
+
+UPDATE WEB_MEMBERS
+SET JOINUS = TO_DATE('2023-11-16', 'YYYY-MM-DD')
+WHERE MEM_ID = 5;
+
+
+SELECT * FROM WEB_RENTALS;
+SELECT * FROM WEB_MEMBERS;
+SELECT * FROM WEB_BOOKS;
+
+-- 비등가 조인
+SELECT R.MEM_ID, M.JOINUS
+FROM WEB_RENTALS R INNER JOIN WEB_MEMBERS M
+	ON R.MEM_ID = M.MEM_ID
+WHERE R.REN_RETURNDATE > M.JOINUS;
+
+-- 실습
+-- 1. EMPLOYEES 테이블에서 사원번호(EMPLOYEE_ID)로 DEPARTMENT 테이블의 지역(LOCATION_ID) 조회
+-- 조인 사용시 테이블 간 관계를 먼저 확인해야한다!!
+-- ERD 확인하기
+-- 두 테이블 간 관계에서 어떤 컬럼을 FK(DEPARTMENT_ID) 파악(등가조인 가능)
+
+-- DEPARTMENTS의 행이 더 적은데 후행 테이블로 가면 효율이 좋지 않다
+SELECT * FROM EMPLOYEES e JOIN DEPARTMENTS d 
+--ON DEPARTMENT_ID = DEPARTMENT_ID; DEPARTMENT_ID컬럼이 어느 테이블의 것인지 명확히 구분되지 않음
+-- 반드시 별칭을 넣어야한다
+
+SELECT * FROM EMPLOYEES e JOIN DEPARTMENTS d 
+ON D.DEPARTMENT_ID = E.DEPARTMENT_ID;
+
+-- 지역을 검색하라고 했으니 JOIN해서 나온 결과의 원하는 정보만 뽑아온다
+SELECT E.EMPLOYEE_ID, D.LOCATION_ID
+FROM DEPARTMENTS D 
+JOIN EMPLOYEES E ON D.DEPARTMENT_ID = E.DEPARTMENT_ID;
+
+
+
+SELECT * FROM EMPLOYEES; -- 107행
+SELECT * FROM DEPARTMENTS; -- 27행
+
+-- 2. 회원이름과 대여한 책의 저자 조회
+-- WEB_MEMBERS 테이블과 WEB_RENTALS 테이블을 (회원번호)기준으로 내부 조인
+-- WEB_BOOKS 테이블을 (책ID)를 기준으로 내부조인
+SELECT M.MEM_NAME, B.BOOK_AUTHOR
+FROM WEB_MEMBERS M 
+INNER JOIN WEB_RENTALS R ON M.MEM_ID = R.MEM_ID
+INNER JOIN WEB_BOOKS B ON R.BOOK_ID = B.BOOK_ID;
+
+-- 3. WEB_MEMBERS 테이블의 각 회원이 대여한 도서의 수 조회(서브쿼리)
+-- WEB_MEMBERS 테이블의 회원에 대해 서브쿼리를 사용하여 대여한 도서의 수 
+-- 해당 회원의 MEM_ID 대여정보 WEB_RENTALS 테이블을 연결해
+-- COUNT함수
+SELECT M.MEM_NAME, ( 
+	SELECT COUNT(*)
+	FROM WEB_RENTALS R
+	WHERE R.MEM_ID = M.MEM_ID
+)
+FROM WEB_MEMBERS M;
+
+-- 4. 특정 도서 대여 이력
+	-- 회원ID, 빌려간날짜, 반납한날짜 조회(위대한 개츠비)
+-- WEB_MEMBERS 테이블과 WEB_RENTALS 테이블을 (MEM_ID)기준으로 내부 조인
+-- WEB_BOOKS 테이블의 (BOOK_ID)를 기준으로 내부조인
+-- 특정 책 제목으로 대여한 회원과 대여 이력 조회
+
+SELECT M.MEM_ID, R.REN_RENTALSDATE, R.REN_RETURNDATE
+FROM WEB_MEMBERS M
+INNER JOIN WEB_RENTALS R ON M.MEM_ID = R.MEM_ID
+INNER JOIN WEB_BOOKS B ON R.BOOK_ID = B.BOOK_ID
+WHERE B.BOOK_TITLE = '위대한 개츠비';
+
+
+SELECT * FROM WEB_BOOKS;
+SELECT * FROM WEB_BOOKSPRICE;
+
+-- BOOKSPRICE 테이블에 값 추가
+INSERT INTO WEB_BOOKSPRICE
+VALUES(6, 20000);
+
+-- 왼쪽 외부조인
+SELECT A.BOOK_ID, A.BOOK_TITLE, B.BP_ID, B.BP_PRICE
+FROM WEB_BOOKSPRICE B LEFT OUTER JOIN WEB_BOOKS A
+ ON A.BOOK_ID = B.BP_ID;
+
+-- 오른쪽 외부조인
+SELECT A.BOOK_ID, A.BOOK_TITLE, B.BP_ID, B.BP_PRICE
+FROM WEB_BOOKS A RIGHT OUTER JOIN WEB_BOOKSPRICE B
+ON A.BOOK_ID = B.BP_ID;
+
+-- 결과 다름!! 오른쪽 테이블을 기준으로 왼쪽이 맞춰짐
+SELECT A.BOOK_ID, A.BOOK_TITLE, B.BP_ID, B.BP_PRICE
+FROM WEB_BOOKSPRICE B RIGHT OUTER JOIN WEB_BOOKS A
+ON A.BOOK_ID = B.BP_ID;
+
+-- 완전 외부 조인
+INSERT INTO WEB_BOOKS
+VALUES(6, NULL, NULL);
+
+INSERT INTO WEB_BOOKS
+VALUES(7, '밀밭의 마적', 'J.D.샬린저');
+
+SELECT * FROM WEB_BOOKS;
+
+SELECT *
+FROM WEB_BOOKS A FULL OUTER JOIN WEB_BOOKSPRICE B
+ON A.BOOK_ID = B.BP_ID;
+
+
+-- SELF JOIN : 자기 자신을 JOIN하는 것을 의미
+SELECT * FROM EMPLOYEES;
+-- MANAGER_ID
+-- EMPLOYEES 테이블에서 각 사원의 매니저 이름 조회
+
+SELECT E1.EMPLOYEE_ID 사원번호, E1.FIRST_NAME 사원이름, E2.FIRST_NAME 매니저이름, E1.MANAGER_ID 매니저번호
+FROM EMPLOYEES E1 JOIN EMPLOYEES E2
+ON E1.MANAGER_ID = E2.EMPLOYEE_ID;
+
+
+-- 서브쿼리
+-- EMPLOYEES 테이블에서 HIREDATE가 John의 입사년도(2004)와 같은 사원 전체 정보 조회
+SELECT * FROM EMPLOYEES e
+WHERE FIRST_NAME  = 'Laura';
+
+SELECT * FROM EMPLOYEES e 
+WHERE HIRE_DATE BETWEEN '2004-01-01' AND '2004-12-31';
+
+-- 서브쿼리
+SELECT * FROM EMPLOYEES e 
+WHERE TO_CHAR(HIRE_DATE , 'YYYY') = 
+	(SELECT TO_CHAR(HIRE_DATE, 'YYYY') FROM EMPLOYEES WHERE FIRST_NAME = 'Laura');
+
+-- 조인
+SELECT * 
+FROM EMPLOYEES e INNER JOIN (SELECT HIRE_DATE FROM EMPLOYEES e2 WHERE FIRST_NAME='Laura') e2
+ON to_char(e.hire_date, 'YYYY') = TO_CHAR(e2.HIRE_DATE, 'YYYY'); 
+
+-- 형변환 함수
+-- TO_CHAR()
+SELECT SYSDATE
+FROM DUAL;
+
+SELECT TO_CHAR(SYSDATE, 'YYYY.MM.DD')
+FROM DUAL;
+
+SELECT TO_CHAR(SYSDATE, 'YYYY"년 "MM"월 "DD"일"')
+FROM DUAL;
+
+SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD-HH:MI:SS')
+FROM DUAL;
+
+-- 숫자에 콤마 찍기
+-- 형식보다 큰 자리수가 들어오면 데이터가 손상된다
+-- 형식 지정시 0 또는 9를 사용하며
+-- 9를 쓰면 값이 없을 때 공백이 들어간다
+-- 0을 쓰면 0이 들어간다
+-- FM을 형식 가장 왼쪽에 넣으면 불필요한 공백을 없애준다
+SELECT TO_CHAR(12341, 'FM9,999,999')
+FROM DUAL;
+
+
+
+
+
+
+
+
+
+

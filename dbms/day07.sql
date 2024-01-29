@@ -1,0 +1,196 @@
+--학생 테이블(WEB_STUDENTS)
+--	STU_ID	STU_NAME STU_MAJOR STU_CODE	STU_SUBJECT
+--	001, '홍길동', '컴공', 'CS101','데이터베이스'
+--	002,'홍길동',	 '컴공',	'CS202', '알고리즘'
+--	003,'김철수','경영학', 'BU103','경영 이론'
+--	004,'김짱구','도시공학','CY105','도시공학이론'
+
+DROP TABLE WEB_STUDENT;
+
+CREATE TABLE WEB_STUDENTS(
+	STU_STUDENT_ID NUMBER PRIMARY KEY,
+	STU_NAME VARCHAR2(1000),
+	STU_MAJOR VARCHAR2(1000),
+	STU_CODE VARCHAR2(1000),
+	STU_SUBJECT VARCHAR2(1000)
+);
+
+SELECT * FROM WEB_STUDENTS;
+
+INSERT INTO WEB_STUDENTS
+VALUES(001, '홍길동', '컴공', 'CS101','데이터베이스');
+
+INSERT INTO WEB_STUDENTS
+VALUES(002,'홍길동',	 '컴공',	'CS202', '알고리즘');
+
+INSERT INTO WEB_STUDENTS
+VALUES(003,'김철수','경영학', 'BU103','경영 이론');
+
+INSERT INTO WEB_STUDENTS
+VALUES(004,'김짱구','도시공학','CY105','도시공학이론');
+
+-- 데이터 조회(모든 학생 정보 조회)
+SELECT * FROM WEB_STUDENTS;
+
+-- 특정 학번의 학생 정보 조회
+SELECT * 
+FROM WEB_STUDENTS
+WHERE STU_STUDENT_ID = 2;
+
+-- 특정 과목명에 해당하는 학생 정보 조회
+SELECT * 
+FROM WEB_STUDENTS
+WHERE STU_SUBJECT = '데이터베이스';
+
+-- 중복 제거하여 고유한 학과명 조회(DISTINCT)
+SELECT DISTINCT STU_MAJOR
+FROM WEB_STUDENTS;
+
+-- 학번이 2인 학생의 전공을 데이터사이언스로 변경
+UPDATE WEB_STUDENTS
+SET STU_MAJOR = '컴공'
+WHERE STU_STUDENT_ID =2;
+
+SELECT * FROM WEB_STUDENTS;
+
+-- 1차정규화 : 중복된 데이터를 최소화하고 각 열에 원자적인 값을 갖도록 함
+-- 학생 정보와 과목 정보를 별도의 테이블로 분리하여 관계 정의
+-- 학생 정보 테이블
+CREATE TABLE WEB_STU_INFO( 
+	INFO_STUDENT_ID NUMBER PRIMARY KEY,
+	INFO_NAME VARCHAR2(1000),
+	INFO_MAJOR VARCHAR2(1000),
+	INFO_ADDRESS VARCHAR2(1000)
+);
+
+-- 과목 정보 테이블 생성
+CREATE TABLE WEB_SUBJECT(
+	SUB_CODE VARCHAR2(1000) PRIMARY KEY,
+	SUB_SUBJECT VARCHAR2(1000)
+);
+
+
+SELECT * FROM WEB_STU_INFO;
+SELECT * FROM WEB_SUBJECT;
+
+-- 학생 정보 추가
+INSERT INTO WEB_STU_INFO
+VALUES (1, '홍길동', '컴공', '서울시');
+
+INSERT INTO WEB_STU_INFO
+VALUES (2, '홍길동', '컴공', '서울시');
+
+INSERT INTO WEB_STU_INFO
+VALUES(3, '김철수', '경영학', '부산시');
+
+INSERT INTO WEB_STU_INFO
+VALUES(4, '김짱구', '도시공학', '인천시');
+
+-- 과목정보 추가
+INSERT INTO WEB_SUBJECT
+VALUES('CS101', '데이터베이스');
+
+INSERT INTO WEB_SUBJECT
+VALUES('SC202', '알고리즘');
+
+INSERT INTO WEB_SUBJECT
+VALUES('BU103', '경영이론');
+
+INSERT INTO WEB_SUBJECT
+VALUES('CY105', '도시공학이론');
+
+SELECT * FROM WEB_SUBJECT;
+SELECT * FROM WEB_STU_INFO;
+
+-- 2차 정규화 : 부분 종속성을 제거하는 것이 목표
+-- 기본키가 아닌 컬럼이 기본키에 종속되어 있는 경우를 의미함
+-- 수강정보를 별도의 테이블로 분리하고 학생과 과목에 대한 관계를 정의해야함
+-- 학생정보 테이블 (학생ID PK, 이름, 전공, 주소)
+-- 과목정보 테이블 (과목코드 PK, 과목명)
+-- 수강정보 테이블 (수강ID PK, 학생ID FK, 과목코드 FK)
+
+CREATE TABLE WEB_ENROLLMENTS( 
+	ENR_ENROLLMENTS_ID NUMBER PRIMARY KEY,
+	INFO_STUDENT_ID NUMBER,
+	SUB_CODE VARCHAR2(1000),
+	FOREIGN KEY (INFO_STUDENT_ID) REFERENCES WEB_STU_INFO(INFO_STUDENT_ID),
+	FOREIGN KEY (SUB_CODE) REFERENCES WEB_SUBJECT(SUB_CODE)
+)
+
+SELECT * FROM WEB_ENROLLMENTS;
+
+-- 수강 정보 추가
+INSERT INTO WEB_ENROLLMENTS
+VALUES ( 1, 1, 'CS101');
+
+INSERT INTO WEB_ENROLLMENTS
+VALUES ( 2, 2, 'SC202');
+
+-- 현재 정규화된 테이블에서는 이행적 종속성이 없다(제거되었다)
+-- 3차 정규화가 필요하지 않다
+
+-- 1차, 2차, 3차 정규화를 위한 추가 테이블
+
+--직원(WEB_EMP) 테이블
+-- 사원번호(PK) 이름 생년월일 부서정보 급여
+CREATE TABLE WEB_EMP(
+	EMP_ID NUMBER PRIMARY KEY,
+	EMP_NAME VARCHAR2(100),
+	EMP_BRITH DATE,
+	EMP_DEPTID VARCHAR2(1000),
+	EMP_SALRAY NUMBER
+);
+
+DROP TABLE WEB_EMP;
+
+SELECT * FROM WEB_EMP;
+
+INSERT INTO WEB_EMP
+VALUES(1, '홍길동', TO_DATE('2010-12-31', 'YYYY-MM-DD'), '영업부 서울시.. 01234', 300);
+
+INSERT INTO WEB_EMP
+VALUES(2, '김길동', TO_DATE('2011-10-01', 'YYYY-MM-DD'), '영업부 서울시.. 01234', 250);
+
+INSERT INTO WEB_EMP
+VALUES(3, '박길동', TO_DATE('2003-05-01', 'YYYY-MM-DD'), '사업부 경기도...02345', 200);
+
+SELECT * FROM WEB_EMP;
+
+--1           '홍길동', 2010-12-31,  영업부 서울시.. 01234, 300
+--2          김길동 2011-10-01,  영업부 서울시.. 01234 ,    250
+--3           박길동 2003-05-01,  사업부 경기도...02345 ,    200
+
+-- 1차 정규화
+--직원
+DROP TABLE WEB_EMP;
+
+CREATE TABLE WEB_EMP( 
+	EMP_ID NUMBER,
+	EMP_NAME VARCHAR2(1000),
+	EMP_BIRTH DATE,
+	EMP_DEPTID NUMBER, --부서 번호
+	EMP_DEPTNAME VARCHAR2(1000), --부서명
+	EMP_ADDRESS VARCHAR2(1000), -- 주소
+	EMP_ZIPCODE VARCHAR2(1000), --우편번호
+	EMP_SALARY NUMBER,
+	PRIMARY KEY (EMP_ID, EMP_DEPTID)
+);
+
+SELECT * FROM WEB_EMP;
+
+-- 직원 테이블(직원번호 PK)과 부서 테이블(부서번호 PK)
+-- 한명의 직원은 하나의 부서
+-- 하나의 부서는 여러명의 직원
+-- 직원 테이블에 부서테이블의 부서번호를 FK
+
+
+
+
+
+
+
+
+
+ 
+
+

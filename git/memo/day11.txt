@@ -1,0 +1,194 @@
+day11
+복습 -> pull,push -> branch -> GUI
+
+0. 복습
+Git과 Git-hub
+	Git	분산형 버전관리시스템
+		커맨드라인 도구로 git의 모든 기능을 사용할 수 있으며
+		GUI 클라이언트 제공되고 있음
+
+	GitHub	Git기반의 웹포스팅 플랫폼
+		git레포지토리를 호스팅하고 웹 인터페이스를 통해서 프로젝트르 관리하고 
+		협업할 수 있음
+	=> Git은 소스코드의 버전관리를 위한 분산형 버전관리시스템
+	
+	GitHub은 Git 레포지토리를 호스팅하고 협업을 지원하는 웹 플랫폼임
+	
+
+Git 구조
+	3가지 영역으로 나뉘며 각 영역에 순차적으로 파일을 올려줘야 함
+	
+1) workingDirectory작업폴더
+	설정하게 되면 해당 폴더에 .git 폴더가 생성됨
+	- 파일의 상태
+	git의 관리대상아님.
+	관리대상이 아닌상태를 untracked 상태
+
+2) stagingArea스테이징영역
+	git의 관리대상임
+	- 파일의 상태 
+	관리 대상 파일 tracked(추정상태)
+		unmodified : 수정되지 않은 상태
+		modified : 스테이징 영역으로 돌어온 파일이 수정된 상태 
+		staged : 로컬 저장소에 올릴 준비가 완료된 상태
+	
+3) LocalRepository(로컬 저장소)
+	스테이징 영역에서 staged 상태의 파일을 commit하면 로컬저장소에 저장된다
+
+Git 명령어
+git config --global user.name "깃헙닉네임"
+git config --global user.email "깃헙아이디"
+
+git config --list  <--설정내용 확인
+git init  <-- 현재폴더내에 .git폴더가 생성됨, 현재위치에 폴더를 workingDirectory로 만들어줌(깃 저장소)
+
+git status <-- 깃 저장소에 있는 파일들의 상태를 확인
+
+git add 파일명  	작업폴더의 파일을 스테이징함
+		수정된 파일을 스테이징상태로 만들기 위함
+
+git rm --cached 파일명	add로 스테이징된 파일을 스테이징 영역에서 내보낸다
+
+git commit -m "메시지" 	스테이징영역의 파일의 변경사항을 확정짓고 새로운 버전을 로컬저장소에 저장
+
+git commit --amend	방금전에 커밋한 메시지를 수정(vim편집기 열림)
+			편집모드로 변경	a i o u
+			일반모드 
+			명령모드로 변경	esc:wq
+			입력모드		수정내용을 작성할 수 있다(하단에 Insert)
+					i a o 
+
+
+	
+git branch	현재 로컬에 브런치를 확인(git-hub 브런치는 main)
+git branch -m master main	현재 로컬에 브런치 master이면 main으로 변경
+git branch -D			branch 삭제
+
+git remote add 원격저장소이름(origin) 주소(githuburl)
+	원격저장소를 로컬과 연결하는 명령어 
+git remote -v
+	원격저장소와 로컬저장소가 연결이 잘 되었는지 확인
+	
+
+Git 시점 되돌리기
+	git은 commit한 시점으로 되돌아갈수있다
+git log
+	커밋기록확인
+	git의 저장된 commit기록을 보여줌
+	가장 최근의 commit부터 상단에 출력함
+	출력결과의 commit뒤에 붙은 16진수 해시코드는 해당 commmit id또는 체크섬이라고부름
+	
+	author : 수정자
+	data	: 수정일자
+	
+git log --pretty=oneline
+	커밋기록을 출력할때 위 옵션을 주면 한줄로 출력함
+	(체크섬과 커밋메시지)
+
+git checkout 체크섬 or 브랜치이름 or - 
+	원하는 시점으로 이동하는 명령어
+	log를 통해 확인한 체크섬을 복붙하거나 앞 7자리만 입력함녀 해당 시점으로 이동함
+	체크섬 대신 -를 사용하면 가장 최근 커밋으로 돌아감
+
+git push origin main 
+	레포지토리에 깃 푸시
+	
+브랜치(branch)
+	한 개의 저장소를 여러갈래로 나누어 관리할 수 있는 개념
+	브랜치끼리는 서로 영향을 받지않으므로 개별적인 작업을 진행가능
+	Git 기본적으로 master 브랜치를 메인으로 사용함
+
+
+원격저장소에 저장한 파일들을 로컬 저장소에 가져올 때 발생할 에러
+[에러내용]fatal: refusing to merge unrelated histories
+[발생이유]로컬저장소와 원격저장소 간에 서로 다른 히스토리를 갖고 있을 때 발생함
+	1) 빈 저장소에서 git init명령어를 사용하여 새로운 저장소를만들었을때
+	2) 로컬저장소를 초기화하고 로모트 저장소를 추가한 후에 리모트 저장소에서 변경사항을 가져올때
+	
+[해결방안]git pull origin main --allow-unrelated-histories
+	* 이작업을 수행하기 전에 현재의 변경 내용을 백업해준다. 
+
+Git push할때 403에러발생
+[에러내용]remote: Permission to jh8NLee/curly-octo-eureka.git denied to JeongHoonSeok.
+fatal: unable to access 'https://github.com/jh8NLee/curly-octo-eureka.git/': The requested URL returned error: 403
+[발생이유]git push 명령해쓰나 Permission문제로 막힘. push하고 싶은 대상저장소에 대한 권한없음
+[해결방안]
+	git remote set-url origin https://<user-name>@github.com/<user-name>/<repository-name>.git
+	다시push한다.만약 로그인창뜨면 입력한다
+
+======================================================
+
+미션
+	[git-hub]개인레포지토리 : web0125
+	로컬폴더 git > web01 > .git파일생성후 html, css파일 넣어라
+	로컬 레포지터리에 올리기(push)
+
+
+
+git init
+git status
+git add .
+git status
+git commit -m "내가 만든 쿠키"
+git log
+git branch
+git branch -m master main
+git remote -v
+git remote add origin "레포지토리주소"
+git remote -v
+git pull origin main --allow-unrelated-histories
+git push origin main
+
+
+======================================================
+클론
+git clone 원격저장소주소 저장할경로
+	원격저장소에 있는 파일들을 복사해서 로컬저장소로 가져오는 명령어
+	다른사람이 서버에 올려놓은 git저장소를 내 컴퓨터에 똑같이 복사해오는 용도로 사용한다
+	보통 처음 세팅을 할때 사용함
+	git clone https://github.com/jh8NLee/web0125.git .
+	ㅁ주의사항 
+		클론을 할때는 git init을 하지 않음
+		git init을 사용할때는 내로컬에서.git폴더를 생성하고 처음부터 관맇라때 사용하는 것
+		클론은 다른사람이 관리하던것 log내용전부를 복제해오는 것	
+
+
+----
+readme수정했을때 
+-> 메인 git pull origin main
+
+-> 클론 git pull 원격저장소주소 main
+----
+		
+	
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+			

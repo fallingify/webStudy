@@ -1,0 +1,144 @@
+body {
+  margin-top: 30px;
+  background-color: gainsboro;
+}
+
+main {
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 193px;
+}
+.home {
+  background-color: darkorange;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+  float: right;
+}
+.home a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 16px 16px;
+}
+
+nav ul {
+  width: 100%;
+  background-color: black;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  color: white;
+  padding: 16px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: antiquewhite;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: pink;
+}
+
+.dropdown-menu:hover:not(.home) {
+  background-color: darkcyan;
+  color: darkgoldenrod;
+}
+
+.bigbox {
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  width: 65vw;
+}
+.content {
+  float: left;
+  margin: 10px;
+}
+.side {
+  float: right;
+  margin-top: 50px;
+  margin: 10px;
+  height: 1113px;
+}
+.smallbox {
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  width: 28vw;
+}
+.bigbox .image {
+  padding: 10px;
+  margin: 0;
+  width: 97%;
+  height: 300px;
+  background-color: peachpuff;
+}
+
+.bigbox p,
+h2 {
+  margin: 10px;
+  padding: auto 10px;
+}
+
+.smallbox .image {
+  margin: 0;
+  padding: 0;
+  width: 97%;
+  height: 100px;
+  background-color: peachpuff;
+}
+
+.footer {
+  width: 2000px;
+  height: 100px;
+}
+
+@media (max-width: 400px) {
+  nav {
+    display: none;
+  }
+}
+
+header,
+footer {
+  width: 100vw;
+  height: 100px;
+  /* background-color: antiquewhite; */
+}
+
+header {
+  margin-bottom: 10px;
+}
+
+main {
+  width: 100vw;
+  height: 1100px;
+  margin-top: 100px;
+  padding-bottom: 10px;
+}

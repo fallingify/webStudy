@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>너의블로그</title>
+    <link rel="stylesheet" href="./../../css/day08/task.css" />
+    <!-- <style>
+      body {
+        margin-top: 30px;
+        background-color: gainsboro;
+      }
+
+      main {
+        height: auto;
+        min-height: 100%;
+        padding-bottom: 193px;
+      }
+      .home {
+        background-color: darkorange;
+        width: 100px;
+        text-align: center;
+        font-weight: bold;
+        float: right;
+      }
+      .home a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding: 16px 16px;
+      }
+
+      nav ul {
+        width: 100%;
+        background-color: black;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        display: inline-block;
+      }
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        color: white;
+        padding: 16px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: antiquewhite;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: pink;
+      }
+
+      .dropdown-menu:hover:not(.home) {
+        background-color: darkcyan;
+        color: darkgoldenrod;
+      }
+
+      .bigbox {
+        background-color: white;
+        padding: 10px;
+        margin: 10px;
+        width: 65vw;
+      }
+      .content {
+        float: left;
+        margin: 10px;
+      }
+      .side {
+        float: right;
+        margin-top: 50px;
+        height: 1113px;
+      }
+      .smallbox {
+        background-color: white;
+        padding: 10px;
+        margin: 10px;
+        width: 28vw;
+      }
+      .bigbox .image {
+        padding: 10px;
+        margin: 0;
+        width: 97%;
+        height: 300px;
+        background-color: peachpuff;
+      }
+
+      .bigbox p,
+      h2 {
+        margin: 10px;
+        padding: auto 10px;
+      }
+
+      .smallbox .image {
+        margin: 0;
+        padding: 0;
+        width: 97%;
+        height: 100px;
+        background-color: peachpuff;
+      }
+
+      .footer {
+        width: 2000px;
+        height: 100px;
+      }
+      @media (width: 400px) {
+        nav {
+          display: none;
+        }
+      }
+    </style> -->
+  </head>
+
+  <body>
+    <header>
+      <h1>나의 블로그</h1>
+      <p>이 공간은 000의 블로그입니다. 공부한 내용을 정리하고 있습니다.</p>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <div class="dropdown-menu">메뉴1</div>
+            <ul class="dropdown-content">
+              <li><a href="#">메뉴1-1</a></li>
+              <li><a href="#">메뉴1-2</a></li>
+              <li><a href="#">메뉴1-3</a></li>
+              <li><a href="#">메뉴1-4</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown-menu">메뉴2</div>
+            <ul class="dropdown-content">
+              <li><a href="#">메뉴1-1</a></li>
+              <li><a href="#">메뉴1-2</a></li>
+              <li><a href="#">메뉴1-3</a></li>
+              <li><a href="#">메뉴1-4</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown-menu">메뉴3</div>
+            <ul class="dropdown-content">
+              <li><a href="#">메뉴1-1</a></li>
+              <li><a href="#">메뉴1-2</a></li>
+              <li><a href="#">메뉴1-3</a></li>
+              <li><a href="#">메뉴1-4</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown-menu">메뉴4</div>
+          </li>
+          <li class="home"><a href="#">home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- <h1>나의 블로그</h1>
+      <p>이 공간은 000의 블로그입니다. 공부한 내용을 정리하고 있습니다.</p>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <div class="dropdown-menu">메뉴1</div>
+            <ul class="dropdown-content">
+              <li><a href="#">메뉴1-1</a></li>
+              <li><a href="#">메뉴1-2</a></li>
+              <li><a href="#">메뉴1-3</a></li>
+              <li><a href="#">메뉴1-4</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown-menu">메뉴2</div>
+            <ul class="dropdown-content">
+              <li><a href="#">메뉴1-1</a></li>
+              <li><a href="#">메뉴1-2</a></li>
+              <li><a href="#">메뉴1-3</a></li>
+              <li><a href="#">메뉴1-4</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown-menu">메뉴3</div>
+            <ul class="dropdown-content">
+              <li><a href="#">메뉴1-1</a></li>
+              <li><a href="#">메뉴1-2</a></li>
+              <li><a href="#">메뉴1-3</a></li>
+              <li><a href="#">메뉴1-4</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown-menu">메뉴4</div>
+          </li>
+          <li class="home"><a href="#">home</a></li>
+        </ul>
+      </nav> -->
+      <div class="content">
+        <div class="bigbox">
+          <h2>HTML, CSS 총 정리</h2>
+          <p>
+            <b> 작성일 : 2024년 1월 22일 </b>
+          </p>
+          <div class="image">이미지</div>
+          <p>텍스트</p>
+          <p>HTML, CSS공부한 것을 작성</p>
+        </div>
+        <div class="bigbox">
+          <h2>내 소개</h2>
+          <p>
+            <b> 본인이름, 2024년 1월 22일 </b>
+          </p>
+          <div class="image">이미지</div>
+          <p>000 소개</p>
+          <p>이름 : 본인이름</p>
+          <p>나이 : 본인나이</p>
+          <p>전공 : 000</p>
+          <p>취미 : 000</p>
+        </div>
+      </div>
+      <div class="side">
+        <div class="smallbox">
+          <h2>Comment</h2>
+          <div class="image">이미지</div>
+          <p>comment</p>
+        </div>
+
+        <div class="smallbox">
+          <h2>인기 있는 글</h2>
+          <div class="image">이미지</div>
+          <div class="image">이미지</div>
+          <div class="image">이미지</div>
+        </div>
+
+        <div class="smallbox">
+          <h2>나를 팔로우하세요</h2>
+          <p>텍스트...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <h1>푸터</h1>
+      </div>
+    </footer>
+  </body>
+</html>

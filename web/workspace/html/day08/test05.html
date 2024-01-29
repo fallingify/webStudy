@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 우선순위</title>
+    <style>
+      body {
+        background-color: lightgray;
+        color: red;
+      }
+
+      p {
+        color: blue;
+        /* !important; */
+      }
+      #myId {
+        color: green;
+      }
+
+      .myClass {
+        color: orange;
+      }
+
+      div {
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <p>이 문장은 속성값 뒤에 !important를 붙인 경우이다.</p>
+    <p class="inline" style="color: red">
+      이 문장은 인라인 스타일을 적용한 경우이다
+    </p>
+    <p id="myId">이 문장은 선택자로 id를 사용한 경우이다</p>
+    <p class="myClass">이 문장은 선택자로 클래스를 사용한 경우이다</p>
+    <div>이 문장은 선택자로 태그를 사용한 경우이다</div>
+  </body>
+</html>

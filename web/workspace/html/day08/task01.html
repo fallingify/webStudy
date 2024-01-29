@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간단한 양식 예제</title>
+    <style>
+      li {
+        margin: 10px 0;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>간단한 양식 예제</h1>
+    <form action="" method="">
+      <fieldset>
+        <legend>개인 정보 입력</legend>
+        <ul>
+          <li>
+            <label for="name">이름 : </label>
+            <input type="text" id="name" name="name" required />
+          </li>
+          <li>
+            <label for="email">이메일: </label>
+            <input type="email" id="email" name="email" required />
+          </li>
+          <li>
+            <label for="password">비밀번호: </label>
+            <input type="password" name="password" required />
+          </li>
+          <li>
+            <label for="gender ">성별 : </label>
+            <input type="radio" id="male" name="gender" value="male" checked />
+            <label for="gender ">남성</label>
+            <input type="radio" id=" female" name="gender" value="female" />
+            <label for="gender ">여성</label>
+          </li>
+          <li>
+            <label for="country"> 국가 : </label>
+            <select name="country" id="country">
+              <option value="kr" selected>대한민국</option>
+              <option value="ch">중국</option>
+              <option value="us">미국</option>
+              <option value="jp">일본</option>
+            </select>
+          </li>
+          <li>
+            <label for="bio">자기소개</label>
+            <br />
+            <textarea name="bio" id="bio" cols="30" rows="5"> </textarea>
+          </li>
+          <li>
+            <button type="submit">제출</button>
+            <button type="reset">다시시작</button>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+  </body>
+</html>

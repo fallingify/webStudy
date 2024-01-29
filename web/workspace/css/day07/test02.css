@@ -1,0 +1,28 @@
+li::first-letter{
+    color:red;
+
+}
+
+li:last-child::after{
+    content: "new";
+    color: white;
+    background-color: gold;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+
+}
+
+p::before{
+    content: "\2713";
+    /* \2713 은 유니코드의 번호로 사용한다. 체크마크문자를 나타냄 */
+}
+
+ul li:nth-child(odd){
+    background-color: beige;
+}
+
+
+
+
+
