@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prompt() 입력창 띄우기</title>
+  </head>
+  <body>
+    <!-- 입력창을 띄우고 사용자로부터 입력받기 -->
+    <!-- 사용자가 입력한 날짜는 `00년 00월 00일` 입니다
+        사용자가 날짜를 입력했습니다.
+        사용자가 입력을 취소했습니다-->
+
+    <script>
+      //Date()이용
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const day = now.getDate();
+      const userInput = prompt(`${year}년 ${month}월 ${day}일`);
+      if (userInput === null) {
+        alert("사용자가 입력을 취소했습니다");
+      } else {
+        alert(`사용자가 입력한 날짜는 ${year}년 ${month}월 ${day}일 입니다`);
+      }
+    </script>
+  </body>
+</html>

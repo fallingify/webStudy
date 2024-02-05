@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>confirm() 확인창 띄우기</title>
+  </head>
+  <body>
+    <script>
+      /*입력창을 띄우고 사용자로부터 입력받기*/
+      const username = prompt("이름을 입력하세요", "홍길동");
+      const tobecontinue = confirm("계속하시겠습니까");
+
+      if (tobecontinue) {
+        alert(`${username}이 눌렀다`);
+      } else {
+        alert(`${username}이 취소했습니다.`);
+      }
+    </script>
+  </body>
+</html>
