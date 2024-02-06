@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Thu Dec 25 2025 10:30:25 GMT+0900 (한국 표준시)
+            Sun Sep 13 1998 18:20:00 GMT+0900 (한국 표준시)
+            Sun Feb 20 2000 00:00:00 GMT+0900 (한국 표준시) -->
+
+    <p id="day"></p>
+
+    <script>
+      const day1 = new Date(2025, 11, 25, 10, 30, 25);
+      const day2 = new Date(1998, 8, 13, 18, 20);
+      const day3 = new Date(2000, 1, 20);
+
+      text = "";
+      text += day1 + "<br>";
+      text += day2 + "<br>";
+      text += day3;
+      document.getElementById("day").innerHTML = text;
+    </script>
+  </body>
+</html>

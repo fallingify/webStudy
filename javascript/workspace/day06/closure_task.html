@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="p">안녕하세요</p>
+    <button onclick="changeColor()">배경색상변경</button>
+    <button onclick="change()">배경색상변경</button>
+    <script>
+      const p1 = document.getElementById("p");
+
+      const change = (function () {
+        let result = false;
+        return function () {
+          p1.style.backgroundColor = result ? "yellow" : "pink";
+          result = !result;
+          return result;
+        };
+      })();
+
+      function changeColor() {
+        document.getElementById("show").innerHTML = change();
+      }
+    </script>
+  </body>
+</html>

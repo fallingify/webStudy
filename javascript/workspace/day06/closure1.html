@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="imabutton" onclick="incount()"></button>
+    <p id="show">0</p>
+    <script>
+      document.getElementById("imabutton").innerHTML = "+";
+
+      //버튼 클릭시 increase한다.
+      const increase = (function () {
+        let count = 0;
+        return function () {
+          count += 1;
+          return count;
+        };
+      })(); //이것은 익명함수의 즉시실행형 기본형태임.
+
+      // (function(매개변수){
+      //   명령
+      // }(인수));
+
+      function incount() {
+        document.getElementById("show").innerHTML = increase();
+      }
+    </script>
+  </body>
+</html>

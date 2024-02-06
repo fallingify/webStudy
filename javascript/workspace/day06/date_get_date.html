@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="date"></p>
+    <p id="show"></p>
+    <p id="time"></p>
+    <script>
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const date = now.getDate();
+      const day_name = ["일", "월", "화", "수", "목", "금"];
+      const day = day_name[now.getDay()];
+      // let text = year + "년 " + month + "월 " + date + "일";
+      // document.getElementById("date").textContent = text;
+      // document.getElementById("date").innerHTML = text;
+
+      //요일
+      let text1 = `${month}월 ${date}일 ${day}`;
+      document.getElementById("show").textContent = text1;
+
+      //시간
+      const hour = now.getHours();
+      const min = now.getMinutes();
+      const second = now.getSeconds();
+
+      let text2 = `${hour}시 ${min}분 ${second}초`;
+      document.getElementById("time").innerHTML = text2;
+    </script>
+  </body>
+</html>

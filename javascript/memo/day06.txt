@@ -1,0 +1,79 @@
+
+2. 예외처리
+   코드 실행 중에 발생할 수 있는 오류나 예외상황을 처리하고 관리하는 것을 의미
+
+   try ~ catch문
+      try{
+         //예외 발생 가능한 코드
+      }catch (error) {	
+         //예외 처리 코드
+      }
+   
+   try ~ catch ~ finally문
+      try{
+         //예외 발생 가능한 코드
+      }catch (error) {
+         //예외 처리 코드
+      }finally {
+         //예외 발생 유무에 상관없이 항상 실행되는 코드
+      }
+
+   throw문
+      사용자 지정 예외를 발생시킬 수 있다
+
+      throw new Error(메시지);
+
+   사용자 정의 예외
+      사용자가 특정 상황에 맞는 예외를 발생시킬 수 있도록 사용자 정의 예외 클래스를 만드는것을 의미
+      Error 클래스를 확장하거나 재정의하여 만들 수 있다    
+  
+   에러객체
+      에러가 발생하면 자바스크립트는 에러 상세 내용이 담긴 객체를 생성한다
+      catch 블록으로 객체를 인수로 전달한다
+      
+      name    : 에러이름
+      message : 에러 상세 내용을 담고 있는 문자 메시지
+      stack     : 비표준 프로퍼티, 현재 호출 스택(디버깅 목적으로 사용)
+		
+
+3. map
+	객체와 유사하지만 맵은 키에 다양한 자료형을 허용한다는 차이가 있다. 
+	
+	new Map()	맵 생성
+	map.set(key, value)	key를 이용해 value를 저장
+	map.get(key)	key에 해당하는 값을 반환, key가 존재하지 않으면 undefined를 반환
+	map.has(key)	key가 존재하면 true, 아니면 false
+	map.delete(key)	key에 해당하는 값을 삭제
+	map.clear()	맵 안에 모든 요소를 제거
+	map.size()	맵 안 요소 개수를 return
+	
+맵의 요소에 반복작업
+	map.keys()	각 요소에 키를 모은 반복가능한 iterable객체 반환
+	map.values()	각 요소에 값을 모은 iterable객체를 반환
+	map.entries()	요소에 [키, 값]을 한쌍으로 하는 iterable객체반환
+			for...of반복문
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			

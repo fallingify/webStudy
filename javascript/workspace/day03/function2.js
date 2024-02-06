@@ -1,8 +1,8 @@
 function Player(name, number, goals, position) {
-    this.name = name;
-    this.number = number;
-    this.goals = goals;
-    this.position = position;
+  this.name = name;
+  this.number = number;
+  this.goals = goals;
+  this.position = position;
 }
 //국가대표 객체 생성
 const nationalTeam = new Object();
@@ -18,10 +18,8 @@ nationalTeam.p3 = p3;
 
 console.log("카타르 아시안컵 국가대표 선수 목록");
 for (let i in nationalTeam) {
-    console.log(
-        "이름 : " + nationalTeam[i].name,
-        ", 포지션 : " + nationalTeam[i].position
-    );
+  console.log(
+    "이름 : " + nationalTeam[i].name,
+    ", 포지션 : " + nationalTeam[i].position
+  );
 }
-
-
