@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>클래스 이름을 이용한 선택</title>
+        <style>
+            .even {
+                background-color: blue;
+            }
+            .odd {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>클래스 이름을 이용한 선택</h1>
+            <ul>
+                <!-- 5개의 li태그를 만들고 
+                홀수번째는 클래스명 : odd item 
+                짝수번째 클래스명 : even item 
+                첫번째 아이템입니다
+                두번째 아이템입니다
+                세번째 아이템입니다-->
+                <!-- 짝수는 파란색, 홀수는 빨간색으로 출력되도록 -->
+                <li class="odd item">첫번째 아이템입니다</li>
+                <li class="even item">두번째 아이템입니다</li>
+                <li class="odd item">세번째 아이템입니다</li>
+                <li class="even item">네번째 아이템입니다</li>
+                <li class="odd item">다섯번째 아이템입니다</li>
+            </ul>
+        </div>
+    </body>
+    <!-- <script>
+        const items = document.querySelectorAll(".item")
+        items.forEach((item, index) =>{
+            if(index % 2 === 0){
+                item.classList.add("even")
+            }else{
+                item.classList.add("odd")
+            }
+        })
+    </script> -->
+    <!-- <script>
+        HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
+        const items = document.getElementsByClassName("item");
+        console.log(items);
+        const colors = { even: "pink", odd: "red" };
+        // console.log(colors);
+        //짝수는 파란색, 홀수는 빨간색
+        // items.array.forEach((item) => {
+        //     item.style.color = colors[item.classList[0]];
+        //     //.classList : 첫번째 클래스이름인 item.classList[0]을 이용하여 짝수, 홀수인지 확인
+
+        // });
+
+        items.forEach((item) => {
+            item.style.color = item.classList[0] === "even" && "pink";
+        });
+        items.forEach((item) => console.log(item));
+        for (let i of items) {
+            console.log(i);
+        }
+    </script> -->
+</html>

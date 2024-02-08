@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>has()</title>
+    </head>
+    <body>
+        <p id="result"></p>
+        <script>
+            const set1 = new Set(["빨강", "파랑", "노랑", "초록", "보라"]);
+
+            // let text = "";
+            // text += set1.has("노랑") + "<br>";
+            // text += set1.has("분홍");
+            // document.getElementById("result").innerHTML = text;
+
+            let text = "";
+            const data = new Set("hello");
+
+            for (let i of data) {
+                text += i + "<br>";
+            }
+            text += "data 크기 : " + data.size;
+            document.getElementById("result").innerHTML = text;
+        </script>
+    </body>
+</html>

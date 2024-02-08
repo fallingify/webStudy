@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myDiv_p" class="myDiv">
+      <p>div태그 안에 p태그입니다</p>
+    </div>
+    <div class="myDiv">
+      <span>div태그안에 span태그입니다</span>
+    </div>
+  </body>
+  <script>
+    //아이디 #, 클래스 .
+    // const result = document.querySelector("#myDiv_p p").innerText;
+    const result = document.querySelector(".myDiv span").innerText;
+    console.log(result);
+  </script>
+</html>

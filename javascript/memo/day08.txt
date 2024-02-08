@@ -1,0 +1,130 @@
+javascript day08
+
+복습 -> DOM -> 이벤트
+1) DOM
+	문서 객체 모델을 의미
+	HTML 태그들을 하나씩 객체화 한 것을 의미
+	
+- document.getElementById()
+- document.getElementsByClassName()
+- document.getElementsByTagName()
+
+- document.getElemenetByName()
+- document.querySelector()
+- document.querySelectorAll()
+
+
+1. 이벤트
+	발생한 사건을 의미
+	사용자가 버튼을 클릭하거나 항목을 선택하는 등의 사건을 이벤트라고 한다
+	이벤트가 발생하면 자바스크립트의 코드가 실행되도록 구현하여
+	사용자와 상호작용하는 페이지를 만들 수 있다
+	
+1) 마우스 이벤트 
+	click : 요소를 클릭했을때 발생하는것을 의미
+	mouseover : 마우스커서를 해당요소에 올리면 발생
+	mouseout : 마우스커서가 해당요소의 영역을 벗어나면 발생
+	
+2) 키보드이벤트
+	keydown : 키보드를 누르는 동안 발생
+	keyup : 키보드를 누렀다가 뗄 때 발생
+	keypress : 키보드를 눌렀을 때 발생
+
+3) 문서로딩 이벤트
+	load : 문서(웹페이지)가 로딩이 끝나면 발생
+	unload : 문서를 벗어났을 때 발생
+	scroll : 문서가 스크롤되면 발생
+	...
+
+4) 폼 이벤트
+	입력이 가능한 요소의 이벤트
+	focus : 폼 요소에 포커스가 되면 발생
+	blur : 포커스를 잃으면 발생
+	change : 포커스값이 바뀌거나 체크상태가 변경되면 발생
+	submit : submit버튼을 누르면 발생
+
+
+2. DOM
+1) DOM과 이벤트
+	기존에 이벤트 처리방식은 HTML코드 내에 자바스크립트를 그대로 넣어서 사용했다
+	가독성, 유지보수에 좋지않음
+	DOM을 사용하여 자바스크립트에서 HTML요소를 불러오고 이벤트를 처리할 수 있다
+	
+2) DOM을 사용하기
+	document.메소드()
+	DOM에서 HTML요소를 선택자를 이용해 접근하는 여러 메소드를 재공한다
+	
+getElementById("id")
+	태그에 아이디 속성으로 해당 요소를 가져오는 것
+	id는 중복불가이므로 메소드의 결과는 객체 한개임
+getElmentByClassName("class")
+	태그에 class속성으로 해당요소를가져옴
+	class는 여러 요소가 같은 값을 가질수있으므로 메소드의 결과는 
+	여러 객체를 담은 배열이된다
+querySelector("선택자")
+	id, class외에도 여러 방법으로 요소를 가져올 수 있다
+	css에 선택자를 활용하여 id는 #, class . 으로 사용하여 선택자를작성
+	1개의 요소를 가져올때 사용함(객체 1개를 반환)
+querySelectorAll("선택자")
+	id, class 외에도 여러 방법으로 요소를 가져올 수 있다.
+	여러개의 요소를가져올 떄 사용(객체를 담은 배열을 반환)
+
+
+요소내용을 가져오고, 수정
+	요소.innerText
+		요소의 text를 가져옴
+	요소.innerHTML
+		요소의 text와 내부의 태그까지 가져온다
+
+요소 속성을 가져오기, 수정하기, 삭제하기
+	요소.getAttribute('속성명')
+		해당요소의 특정속성을 가져옴(태그의 속성을 가져옴)
+	요소.setAttribute("속성명". "값")
+		해당 요소의 튻정 속성과 값 설정한다
+	요소.removeAttribute("속성명")
+		요소에서 특정 속성을 제거
+	
+HTML 요소 프로퍼티 직접 수정하기
+	style프로퍼티를 이용하여 직접 수정한다
+	요소.style.속성명 = '값'
+	속성명은 css 속성명과 동일
+	단, -는 사용하지 않으며 카멜표기법을 사용
+	ex) background-color ==> backgroundColor	
+	
+3) DOM을 활용한 이벤트처리
+- DOM요소에 이벤트 핸들러를 직접 연결시키기
+	요소.on이벤트명 = 함수; (이벤트를 처리하는 함수를 이벤트 핸들러)
+- addEventListener() 메소드 사용하기
+	요소.addEventlistener(이벤트, 함수);
+	하나의 요소에 여러 이벤트를 연결 할 수 있으며 가독성도 더 좋다
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체를 동적으로 생성, 삽입, 삭제</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <p>DOM 트리에 동적으로 객체를 삽입할 수 있다</p>
+      <p>
+        createElement("태그명")<br />
+        appendChild("태그객체")<br />
+        removeChild("태그객체")
+      </p>
+      <p>위 3개의 메소드를 이용해서 새로운 객체를 생성, 삽입, 삭제한다</p>
+      <a href="javascript:createDIV()">DIV()생성</a>
+    </div>
+  </body>
+  <script>
+    //Math.floor(Math.random() * n) : 0 ~ n-1랜덤값
+
+    globalThis.number = 0;
+    function createDIV() {
+      //랜덤한 배경색을 지정할 색상 배열
+      const colors = new Array("Yellow", "Red", "Blue", "Green", "Pink");
+
+      //colors 배열에서 랜덤한 색상 선택
+      const choice = Math.floor(Math.random() * colors.length);
+
+      //새로운 div요소 생성
+      const div = document.createElement("div");
+      //div요소에 내용과 스타일을 추가
+      div.innerText = `새로 생성된 div${++globalThis.number}입니다`;
+      div.style.backgroundColor = colors[choice];
+
+      //생성된 div를 wrap요소에 추가
+      document.getElementById("wrap").appendChild(div);
+
+      //생성된 div를 클릭하게 되면 삭제되도록 이벤트핸들러 설정
+      div.onclick = function () {
+        this.parentElement.removeChild(this); //부모요소에서 자식요소를 삭제할때
+        //this.parentElement : 부모요소
+      };
+    }
+  </script>
+</html>

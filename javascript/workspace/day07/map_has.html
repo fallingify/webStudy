@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="result"></p>
+
+        <script>
+            const fruits = new Map([
+                ["사과", 10],
+                ["귤", 50],
+                ["한라봉", 15],
+                ["오렌지", 20],
+            ]);
+
+            // document.getElementById("result").innerHTML = fruits.get("오렌지");
+
+            // let text = "";
+            // text += fruits.has("오렌지") + "<br>";
+            // document.getElementById("result").innerHTML = text;
+
+            //사과 삭제후 남은 요소는 key :  vlaue : 출력하기(3분)
+            fruits.delete("사과");
+            console.log(fruits);
+
+            let text = "";
+            fruits.forEach(function (value, key) {
+                text += key + " : " + value + "<br>";
+            });
+            document.getElementById("result").innerHTML = text;
+        </script>
+    </body>
+</html>

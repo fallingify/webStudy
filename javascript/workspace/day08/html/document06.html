@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>querySelectorAll</title>
+  </head>
+  <body>
+    <h1>리스트</h1>
+    <ol>
+      <li>사과</li>
+      <li>오렌지</li>
+      <li>포도</li>
+      <li>파인애플</li>
+      <li>코코넛</li>
+    </ol>
+  </body>
+  <script>
+    //노드리스트(실시간 변화를 감지안함, 유사배열객체로 출력함)
+    const result = document.querySelectorAll("ol li");
+    console.log(result);
+
+    //하나씩나옴
+    result.forEach(function (item) {
+      console.log(item.innerText);
+    });
+  </script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getElementByClassName</title>
+  </head>
+  <body>
+    <div class="myDiv">첫번째 div 태그</div>
+    <div class="myDiv">두번째 div 태그</div>
+    <div>세번째 div 태그</div>
+  </body>
+  <script>
+    const div = document.getElementsByClassName("myDiv");
+
+    for (let i = 0; i < div.length; i++) {
+      console.log(div[i].innerText);
+    }
+  </script>
+</html>

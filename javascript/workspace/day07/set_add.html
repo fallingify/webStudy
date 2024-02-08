@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>set 추가</title>
+    </head>
+    <body>
+        <p id="result"></p>
+        <script>
+            const set1 = new Set();
+            set1.add("java");
+            set1.add("dbms");
+            set1.add("jdbc");
+            set1.add("html");
+            set1.add("css");
+            set1.add("javascript");
+
+            // let text = "";
+            // set1.forEach(function (value) {
+            //     text += value + "<br>";
+            // });
+            // document.getElementById("result").innerHTML = text;
+
+            set1.delete("java");
+            let text = "";
+            set1.forEach(function (value) {
+                text += value + "<br>";
+            });
+            document.getElementById("result").innerHTML = text;
+        </script>
+    </body>
+</html>

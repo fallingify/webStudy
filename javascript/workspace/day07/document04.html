@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 선택자를 이용한 선택</title>
+    </head>
+    <body>
+        <div>
+            <h1>CSS 선택자를 이용한 선택</h1>
+            <p>첫번째 단락이에요!</p>
+            <ul>
+                <li class="odd">java</li>
+                <li class="even">dbms</li>
+                <li class="odd">html</li>
+                <li class="even">css</li>
+            </ul>
+        </div>
+    </body>
+    <script>
+        NodeList.prototype.filter = Array.prototype.filter;
+
+        const p = document.querySelector("p");
+        const list = document.querySelectorAll("li");
+        // console.log(list);
+        const fontSize = { odd: "25px", even: "15px" };
+
+        p.innerHTML = "<strong>반갑습니다</strong>";
+
+        //홀수의 글자 크기는 25px, 짝수는 15px 변경
+        list.forEach((li) => (li.style.fontSize = fontSize[li.className]));
+    </script>
+</html>
