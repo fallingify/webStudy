@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키 입력 테스트 | 체크박스 이벤트</title>
+</head>
+<body>
+    <label for=""><input type="checkbox" value="선택1">선택1</label>
+    <label for=""><input type="checkbox" value="선택2">선택2</label>
+    <label for=""><input type="checkbox" value="선택3">선택3</label>
+
+    <p id="result"></p>
+</body>
+<script>
+    // 3개의 checkbox중에 선택 시 해당값을 가져와서 p태그(id=result)에 출력
+    // appendChild()
+    // removeChild()
+
+    // querySelectorAll() 의 리턴타입은 NodeList타입이다
+    // filter() 가 구현되어 있지 않아서 Array객체에 구현된 filter로 만들어준다
+    // prototype을 사용하여 선언하면 모든 해당 프로토타입의 객체들에 반영된다
+
+    NodeList.prototype.filter = Array.prototype.filter
+    
+    // 체크박스 전부 가져오기
+    const checkboxes  = document.querySelectorAll("input[type='checkbox']");
+    
+    // 체크된 값 value를 담아줄 p 태그 가져오기
+    const result = document.querySelector("#result");
+
+    // 이벤트리스너는 하나의 객체에만 사용할 수 있다
+    checkboxes.forEach((checkboxes) => {
+        //각 객체에 이벤트리스너를 만들어준다
+        checkboxes.addEventListener("click", (e) => {
+            // 클릭한 체크박스가 체크되었다면
+            if(e.target.checked) {
+                // p태그안에 strong태그를 넣어준다
+                const strong = document.createElement("strong");
+
+                // 체크된 체키박스안에 있는 value를 strong태그의 내용으로 작성한다
+                strong.innerText = e.target.value;
+
+                result.appendChild(strong);
+
+            } else { //클릭되지 않은 상태
+                // 모든 strong태그, result를 가져옴
+                const strongs = document.querySelectorAll("#result strong"); 
+
+                //삭제대상을 걸러낸 뒤
+                const target = strongs.filter((strong) => strong.innerText == e.target.value)[0];
+
+                //삭제
+                result.removeChild(target);
+            }
+        })
+    })
+
+
+
+</script>
+</html>
