@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>마우스 이벤트3</title>
+        <style>
+            div#box1 {
+                border: 3px solid red;
+            }
+            div#box2 {
+                border: 3px solid blue;
+            }
+            p {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box1" onmouseenter="increaseX()">
+            <p>단락1</p>
+            <span id="result1"></span>
+        </div>
+        <div id="box2" onmouseover="increaseY()">
+            <p>단락2</p>
+            <span id="result2"></span>
+        </div>
+    </body>
+    <script>
+        let x = 0,
+            y = 0;
+        function increaseX() {
+            x += 1;
+            document.getElementById("result1").innerHTML = x;
+        }
+
+        function increaseY() {
+            y += 1;
+            document.getElementById("result2").innerHTML = y;
+        }
+    </script>
+</html>

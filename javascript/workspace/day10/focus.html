@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>포커스</title>
+    </head>
+    <body>
+        <form id="form1">
+            이름 : <input type="text" id="name" />
+            나이 : <input type="text" id="age" />
+        </form>
+    </body>
+    <script>
+        let x = document.getElementById("form1");
+        x.addEventListener("focus", changBg1, true);
+        x.addEventListener("blur", clearBg1, true);
+        x.addEventListener("focus", changBg2, true);
+
+        function changBg1() {
+            document.getElementById("name").style.backgroundColor = "yellow";
+        }
+        function clearBg1() {
+            document.getElementById("name").style.backgroundColor = "";
+        }
+
+        // function changBg2() {
+        //     document.getElementById("age").style.backgroundColor = "blue";
+        // }
+    </script>
+</html>

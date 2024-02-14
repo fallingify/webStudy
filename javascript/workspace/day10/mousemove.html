@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스이벤트2</title>
+    <style>
+        div#box {
+            border: 3px solid black;
+            width: 300px; height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" onmousemove="showResult(event)">
+        <p id="result"></p>
+    </div>
+
+</body>
+<script>
+    function showResult(x) {
+        let text = "좌표 : (" + x.clientX + ", "  + x.clientY + ")";
+        document.getElementById("result").innerHTML = text;
+
+
+    }
+</script>
+</html>
