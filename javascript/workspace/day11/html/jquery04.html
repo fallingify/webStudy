@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>jQuery 전체 동의</title>
+    </head>
+    <body>
+        <form action="" name="myForm">
+            <div>
+                <label
+                    >전체동의
+                    <input type="checkbox" name="term1" class="all" />
+                </label>
+            </div>
+            <div>
+                <label
+                    >서비스 이용약관동의
+                    <input type="checkbox" name="term1" class="term" />
+                </label>
+            </div>
+            <div>
+                <label>
+                    광고 수신 동의
+                    <input type="checkbox" name="term2" class="term" />
+                </label>
+            </div>
+            <div>
+                <label>
+                    개인 정보 이용 약관 동의
+                    <input type="checkbox" name="term3" class="term" />
+                </label>
+            </div>
+        </form>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(".all").on("click", (e) => {
+            $(".term").prop("checked", e.target.checked);
+        });
+
+        $(".term").on("click", (e) => {
+            $(".all").prop(
+                "checked",
+                $(".term").filter(":checked").length === 3
+            );
+        });
+    </script>
+    <!-- day09 >  dom-event04.js 모든 체크박스 동의 javascript 코드 비교-->
+</html>

@@ -1,0 +1,16 @@
+날짜	하루할당부분		하루목표달성률(100%)	전체 완성달성률(100%)
+2/21	html, css(nav)					5%
+2/22	html, css(banner)				10%
+2/23	html, css(main)					15%
+2/24	html, css(main)					20%
+2/25	html, css(main)					25%
+2/26	html, css(footer)				30%
+2/27	html, css(login)				35%
+2/28	html, css(login)				40%
+2/29	js(nav)						45%
+3/1	js(banner)					50%
+3/2	js(main)					55%
+3/3	js(main)					60%
+3/4	js(main)					65%
+3/5	js(login)					70%
+3/6	js(login)					100%

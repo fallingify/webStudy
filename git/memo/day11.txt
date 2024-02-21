@@ -136,7 +136,7 @@ git branch -m master main
 git remote -v
 git remote add origin "레포지토리주소"
 git remote -v
-git pull origin main --allow-unrelated-histories
+git pull origin main
 git push origin main
 
 
