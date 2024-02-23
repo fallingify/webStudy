@@ -1,0 +1,12 @@
+{
+  "name": "day02",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel day02 -d build"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

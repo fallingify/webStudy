@@ -1,0 +1,110 @@
+Day02
+
+웹개발4 9일차(Vue 2일차)
+개인프로젝트 -> ES6
+
+
+0. 개인프로젝트(1교시 진행)
+   git-hub push, 노션 업데이트
+
+
+1. ES6
+   ES6(ECMAScript 6) ECMAScript의 6번째 버전이라는 뜻이다
+   ECMAScript는 ECMA-262 기술규격에 정의된 표준화된 스크립트 프로그래밍 언어를 의미한다
+
+   ES6버전과 이전버전의 변환 기능을 제공하는 것을 트랜스파일러(Transpiler)
+   babel, tsc(typescript 트랜스파일러)가 대표적이다
+
+1) 도구
+   Babel REPL 브라우저 기반의 도구
+   ES6코드를 작성하면 즉시 ES5 코드를 변환을 시도하며 에러메시지도 바로 보여준다
+   https://babeljs.io/repl
+
+
+Vscode 터미널에서 
+
+Sudo npm install --save-dev @babel/core @babel/cli @babel/preset-env core-js 
+
+2) npm 패키지와 package.json파일
+	npm install, yarn add 명령어는 nodejs패키지를 설치할 수 있는 명령어
+	npm install 패키지명1, 패키지명2
+		로컬모드로 설치, 현재 디렉터리의 node_modules 디렉터리에 패키지를 설치하는 것
+	npm install -g 패키지명1
+		-g 옵션은 패키지를 전역에 설치, 현재 내 컴퓨터내에 모든 프로젝트에서 이용가능해짐
+	npm install --save 패키지명1, 패키지명2
+		--save옵션은 현재 프로젝트의 package.json에 의존성으로 기록
+	npm install --save-dev 패키지명1, 패키지명2
+		--save-dev 옵션은 현재 프로젝트 package.json에 개발 의존성으로 기록
+		운영버전으로 빌드된 이후엔 사용되지 않는다
+	참고 사이트 : http://docs.npmjs.com/files/package.json
+	
+3) 자주 사용하는 npm 명령어
+	npm init: 프로젝트 초기화
+	npm install : package.json 패키지 설치
+	npm install --save : 패키지를 프로젝트 의존성으로 추가
+	npm install --save-dev : 패키지를 프로젝트 개발 의존성으로 추가
+	npm install --global(-g) : 패키지를 전역수준으로 추가
+	npm update --save : 프로젝트 패키지를 업데이트
+	npm run 스크립트명 : package.json의 스크립트 명령 실행
+	npm uninstall --save : 패키지 삭제
+	npm cache clear : 캐시 삭제
+	
+4) Babel 트랜스파일러를 사용하기
+   추가 설정이 필요하다
+   설정 파일 형식은 .babelrc 파일, babel.config.json 파일
+
+
+2. JavaScript 
+1) let과 const
+	ES6가 등장하기 전에 변수 선언시 var키워드를 사용함
+	호이스탕hoisting 이란?
+		실행 컨텍스트가 만들어진 후에 var키워드가 부여된 변수를 미리 생성하는 것
+		호이스팅 단계에서는 js코드로 파싱하고 내부에 var키워드가 지정된 코드를 
+		찾아서 미리 메모리에 할당한다
+	
+	호이스팅특징
+	- 1) 함수 단위로 호이스팅한다
+	- 2) 호이스팅단계에서 이미 변수가 생성되어 있다면 변수를 생성하지 않고 건너뛴다
+		즉, 오류를 일으키지 않음(변수의 중복선언을 허용함)
+	
+	=> 이 문제를 해결하기 위해 let키워드를 지원함
+
+Let
+	블록수준의 유효범위를 지원함
+	변수의 중복 선언을 하지 않고 호이스팅하지 않음
+	let키워드 변수 중복불가
+	
+
+---
+
+상위폴더에서 
+
+npx babel day02 -d build
+
+하면 build파일에 새로운폴더내부 파일 생성됨(해당 디렉터리 업데이트)
+
+node build/parameter01.js
+
+하면 해당 파일만 컴파일
+---
+
+
+const 
+	선언될 때 값이 할당되면 상수로 만들어짐
+	ES6 개발 시 const 자주 사용하는데 객체를 상술 선언했을 때는 
+	속성값 변경할 수 있다
+
+=> 함수나 객체를 만든 후에 메모리 주소가 바뀌지 않도록 하고 싶다면 const를 사용하면 된다
+	const 객체를 생성한 경우 객체 내부의 속성이 변경될 수 있지만
+	새로운 객체를 생성하여 할당하는 것을 허용하지 않음
+
+2) 기본 파라미터, 가변 파라미터
+기본파라미터: ES6에서 기본 파라미터를 이용해 함수의 파라미터의 기본값을 지정할 수 있다
+가변파라미터: 여러개의 파라미터 값을 배열로 받을 수 있다. 전달하는 파라미터의 개수는 가변적으로 적용가능하다.
+
+3) 구조 분해 할당(destructuring assignment)
+	 ES6에서는 배열, 객체의 값들을 추출하여 한번에 여러변수에 할당 할 수 있는 기능
+   	함수의 파라미터에서도 사용가능하다
+
+
+	
