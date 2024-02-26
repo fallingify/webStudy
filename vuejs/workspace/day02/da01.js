@@ -7,5 +7,5 @@
 
 let p1 = {name: "lee", age: 20, sex: "M"};
 let {name: n, age: a, sex: g} = p1;
-console.log(n, a, g); //변수명 생락이 가능함. 
-console.log(p1.name); 
+console.log(n, a, g); //변수명 생락이 가능함. 편해짐
+console.log(p1.name); //이렇게 안해도 됨. 위처럼 해도 가능
