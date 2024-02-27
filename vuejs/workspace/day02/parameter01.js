@@ -3,5 +3,5 @@ function addInfo(name, phone, home="없음", email="없음"){
     console.log(str);
 }
 
-addInfo("김영선", "010-1234-1234");
-addInfo("김영선", "010-2345-2345", "뉴욕시", "a@it.com");
+addInfo("lee", "010-1234-1234");
+addInfo("hoon", "010-2345-2345", "남극 ", "a@inter.net");

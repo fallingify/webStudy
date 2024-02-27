@@ -86,6 +86,7 @@ npx babel day02 -d build
 node build/parameter01.js
 
 하면 해당 파일만 컴파일
+
 ---
 
 
