@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text, v-html</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <h1>{{msg}}</h1> -->
+        <h2 v-text="msg"></h2>
+        <!-- 콧수염 템플릿과 동일한 기능을 수행한다 -->
+    </div>
+    <script>
+        var model = {msg: "Hello"};
+        var vm = Vue.createApp({
+            name : "App",
+            data(){
+                return model;
+            },
+        });
+        vm.mount("#app");
+    </script>
+</body>
+</html>

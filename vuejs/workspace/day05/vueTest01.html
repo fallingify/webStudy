@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>vue</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{msg}}</h1>
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+            var msg = { msg: "Hello Vue!" };
+            var vm = Vue.createApp({
+                name: "App",
+                data() {
+                    return msg;
+                },
+            }).mount("#app");
+        </script>
+    </body>
+</html>

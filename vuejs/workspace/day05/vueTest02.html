@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue3 기본구성</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="counter">
+            <!-- <button type="button">conter : 0</button> -->
+            <!-- <button type="button">counter : {{counter}}</button> -->
+            <button type="button" v-on:click="counter++">
+                counter : {{counter}}
+            </button>
+            <!-- 템플릿문법 -->
+        </div>
+        <script>
+            const counter = Vue.createApp({
+                //createApp 인스턴스를 생성
+                data() {
+                    //data()로 counter를 생성
+                    return {
+                        counter: 10,
+                    };
+                },
+            });
+            counter.mount("#counter");
+            // 랜더링해서 마운트 시킬수 있다
+        </script>
+    </body>
+</html>

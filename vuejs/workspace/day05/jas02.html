@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript counter</title>
+</head>
+<body>
+    <button type="button" onclick="increment()">counter: <span id="counter">2</span></button>
+    <script>
+        let counter = 10;
+        // let $span = document.querySelector("#counter");
+        // $span.textContent = counter;
+
+        //jas는 자동으로 랜더링하지 않음, 직접 함수를 만들어야 함
+        function increment(){
+            counter++;
+            print();
+        }
+        function print(){
+            let $span = document.querySelector("#counter");
+            $span.textContent = counter;
+        }
+    </script>
+</body>
+</html>
