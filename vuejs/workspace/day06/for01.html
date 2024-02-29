@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for-array</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        #list{
+            width: 500px; 
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #list td, #list th{
+            border: 1px solid black;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>점수</th>
+                </tr>
+            </thead>
+            <tbody id="content">
+                <tr v-for="cont in content" :key="cont.no">
+                    <td>{{cont.no}}</td>
+                    <td>{{cont.name}}</td>
+                    <td>{{cont.score}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            name: "App",
+            data(){
+                return {
+                    no: 1, 
+                    size: 4, 
+                    total: 10,
+                    content: [
+                        {no:2401, name:"star", score:100},
+                        {no:2402, name: "circle", score: 99},
+                        {no:2403, name: "stone", score: 98},
+                    ],
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

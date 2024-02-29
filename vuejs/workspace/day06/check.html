@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkbox, select요소</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="hobby">
+            <h1>취미생활</h1>
+            <div>
+                <input type="checkbox" id="work" value="work" v-model="hobby"/>
+                <label for="scales">운동</label>
+            </div>
+            <div>
+                <input type="checkbox" id="book" value="book"  v-model="hobby"/>
+                <label for="book">독서</label>
+            </div>
+            <div>
+                <input type="checkbox" id="music" value="music"  v-model="hobby"/>
+                <label for="music">음악</label>
+            </div>
+            <div>
+                <input type="checkbox" id="dance" value="dance"  v-model="hobby"/>
+                <label for="dance">댄스</label>
+            </div>
+            <div>
+                <input type="checkbox" id="travel" value="travel"  v-model="hobby"/>
+                <label for="travel">여행</label>
+            </div>
+        </div>
+        <br>
+
+        <div id="product">
+            <h1>상품분류 선택</h1>
+            <select name="" id="" v-model="category">
+                <option value="">--선택--</option>
+                <option value="c1">레저</option>
+                <option value="c2">가전</option>
+                <option value="c3">주방</option>
+                <option value="c4">도서</option>
+                <option value="c5">식재료</option>
+            </select>
+        </div>
+        <hr>
+        <div>
+            선택한 취미 : {{hobby.join(", ")}}
+        </div>        
+        <div>
+            선택한 상품분류 : {{category}}
+        </div>
+
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            name: "App",
+            data(){
+                return {
+                    hobby: [],
+                    category: "",
+                }
+            }
+        });
+        vm.mount("#app");
+        
+    </script>
+</body>
+</html>

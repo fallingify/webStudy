@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바인딩 이용</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="kpp">   
+        <input type="text" v-model="asdf"> <br>
+        <p>입력한 이름 : <span>{{asdf}}</span> </p>
+    </div>
+    <script>
+        const vm = Vue.createApp({
+            name: "App",
+            data(){
+                return {
+                    asdf : "", 
+                };
+            },
+        });
+        vm.mount("#kpp");
+    </script>
+</body>
+</html>

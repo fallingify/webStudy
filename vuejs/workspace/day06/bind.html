@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind 디렉티브</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" placeholder="값 입력"> -->
+        <input type="text" v-bind:placeholder="msg">
+        <hr>
+        <button v-on:click="reverseMsg">click</button>
+        <hr>
+        <h1>{{username}}</h1>
+        <input type="text" v-bind:value="username">
+    </div>
+    <script>
+        var app = Vue.createApp({
+            name : "App",
+            data(){
+                return {
+                    msg : "값 입력해라",
+                    username: "lee"
+                };
+            },
+            methods:{
+                print(){
+                    alert("안녕하세요");
+                },
+                reverseMsg(){
+                    this.msg = this.msg.split("").reverse().join("");
+                },
+            },
+        });
+        app.mount("#app");
+    </script>
+</body>
+</html>
