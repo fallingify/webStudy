@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./component03.css">
+</head>
+<body>
+    <!-- app -->
+    <div id="app">
+        <!-- 헤더 -->
+        <header>
+            <h1>Header</h1>
+        </header>
+
+        <!-- 네비 -->
+        <!-- li>a{메뉴$}*4 -->
+        <!-- <nav>
+            <ul>
+                <li>
+                    <a href="">메뉴1</a>
+                    <a href="">메뉴2</a>
+                    <a href="">메뉴3</a>
+                    <a href="">메뉴4</a>
+                </li>
+            </ul>
+        </nav> -->
+        <nav-component></nav-component>
+
+        <!-- 메인 -->
+        <main>
+            <section>
+
+                <!-- <article class="box">
+                    <div class="box_sub">box</div>
+                    <div class="box_title">javascript</div>
+                </article>
+
+                <article class="box">
+                    <div class="box_sub">box</div>
+                    <div class="box_title">javascript</div>
+                </article>
+
+                <article class="box">
+                    <div class="box_sub">box</div>
+                    <div class="box_title">javascript</div>
+                </article> -->
+
+                <box-component></box-component>
+                <box-component></box-component>
+                <box-component></box-component>
+
+            </section>
+        </main> 
+        
+    </div>
+
+    <!-- script -->
+    <script>
+        // 지역변수인 컴포넌트
+        const vm = Vue.createApp({
+            components : {
+                BoxComponent : {
+                    template : `
+                    <article class="box">
+                        <div class="box_sub">box</div>
+                        <div class="box_title">javascript</div>
+                    </article>
+                    `,
+
+                },
+                NavComponent : {
+                    template : `
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">메뉴1</a>
+                                <a href="">메뉴2</a>
+                                <a href="">메뉴3</a>
+                                <a href="">메뉴4</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    `,
+                }
+                
+            },
+        });
+        vm.mount("#app")
+    </script>
+</body>
+</html>

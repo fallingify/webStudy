@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴포넌트</title>
+    <link rel="stylesheet" href="./component01.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <main>
+            <section>
+                <!-- 컨테이너 사용 -->
+                <box-component></box-component>
+
+               <!---
+                <article class="box">
+                    <div class="box_sub">box</div>
+                    <div class="box_title">javascript</div>
+                </article>
+
+                <article class="box">
+                    <div class="box_sub">box</div>
+                    <div class="box_title">javascript</div>
+                </article>
+
+                <article class="box">
+                    <div class="box_sub">box</div>
+                    <div class="box_title">javascript</div>
+                </article> -->
+            </section>
+        </main>
+    </div>
+<!--script -->
+    <script>
+        // 컴포넌트 정의
+        const BoxComponent = {
+            template: `
+            <article class="box">
+                <div class="box_sub">box</div>
+                <div class="box_title">javascript</div>
+            </article>
+            `,
+        };
+
+
+        //vue인스턴스 생성
+        const app = Vue.createApp({});
+        app.component("BoxComponent",  BoxComponent);     //컴포넌트 등록 => 전역선언방식
+        app.mount("#app");
+
+    </script>
+</body>
+</html>

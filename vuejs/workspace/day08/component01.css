@@ -1,0 +1,64 @@
+
+* {
+    margin:0;
+    padding: 0;
+}
+
+header { 
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav { 
+    background-color: blanchedalmond;
+    padding: 10px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+nav li{
+    list-style: none;
+    display: inline;
+    margin-right: 10px;
+}
+
+nav li a{
+    text-decoration: none;
+    color: darkblue;
+    padding: 5px 10px;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+}
+
+main{
+    padding: 20px;
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.box {
+    background-color: beige;
+    border: 1px solid gainsboro;
+    padding: 20px;
+    text-align: center;
+    width : 30%;
+}
+
+.box_sub{
+    font-size: 14px;
+    color: darkgray;
+}
+
+.box_title{
+    font-size : 20px;
+    font-weight: bold;
+    margin-top : 10px;
+}

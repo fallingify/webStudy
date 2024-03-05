@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFC</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- single file component를 랜더링할 요소 -->
+        <my-component></my-component>
+    </div>
+    <script>
+        // fetch함수를 사용해 파일내용을 가져옴
+        fetch('template02.vue')
+        .then(response => response.text())
+        .then(data => {
+            //Vue컴포넌트 정의
+            const MyComponent = {
+                template: data, 
+                data(){
+                    return {
+                        name: "lee",
+                    }
+                }
+            }
+            
+            //vue인스턴스(app) 생성하고 
+            //MyComponent등록
+            const app = Vue.createApp({});
+            app.component('MyComponent', MyComponent);
+            app.mount("#app"); 
+
+        });
+   </script>
+</body>
+</html>

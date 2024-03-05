@@ -1,0 +1,19 @@
+.box{
+    width: 200px; 
+    height: 200px;
+    background-color: lightblue;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_sub{
+    font-size: 1rem;
+}
+
+.box_title{
+    font-size: 2rem;
+    font-weight: 700;
+}

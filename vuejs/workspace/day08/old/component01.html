@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>컴포넌트</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./component01.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+      <script>
+        const App = {
+            template: `
+            <div id="app">
+                <app-header></app-header>
+                <app-nav></app-nav>
+                <app-view></app-view>
+            </div>
+            `,
+        }; //루트 컴포넌트 
+        const AppView = {
+            template: `
+            <main>
+                <section>
+                    <box-component></box-component>
+                    <box-component></box-component>
+                    <box-component></box-component>
+                </section>
+            </main>
+            `,
+        }
+        const AppNav = {
+            template: `
+            <nav>
+                <h2>nav</h2>
+                <ul>
+                    <li><a href="">메뉴1</a></li>
+                    <li><a href="">메뉴2</a></li>
+                    <li><a href="">메뉴3</a></li>
+                    <li><a href="">메뉴4</a></li>
+                </ul>
+            </nav>
+            `,
+        }
+        const AppHeader = {
+            template: `
+            <header>
+                <h1>header</h1>
+            </header>
+            `,
+        };
+        const BoxComponent ={
+            template: `
+            <article class="box">
+                <div class="box_sub">box</div>
+                <div class="box_title">javascript</div>
+            </article>
+            `
+        };
+
+        //Vue인스턴스 생성
+        const vm = Vue.createApp(App);
+        //컴포넌트 등록 => 전역으로
+        vm.component("BoxComponent", BoxComponent);
+        vm.component("AppHeader", AppHeader);
+        vm.component("AppNav", AppNav);
+        vm.component("AppView", AppView);
+        vm.mount("#app");
+
+    </script>
+  </body>
+</html>
