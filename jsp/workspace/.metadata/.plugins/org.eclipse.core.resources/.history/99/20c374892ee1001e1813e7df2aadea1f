@@ -1,0 +1,52 @@
+package task;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class UserService {
+//  UserService 클래스를 선언한다.
+//  - 회원정보를 저장할 List를 private으로 선언한다.
+//  - 아이디 중복검사 메소드 정의
+//  - 회원가입 메소드 정의
+//  - 로그인 메소드 정의
+	Scanner sc = new Scanner(System.in);
+	
+	private List<String> userinfo = new ArrayList<>();	
+	
+
+	//아이디 중복검사 
+	public static void checkId(String id) {	}
+	
+	//회원가입 
+	public static void  join(List<String> list) {
+		System.out.print("아이디입력>>");
+		String mid = sc.next();
+		System.out.print("비밀번호 입력>>");
+		String mpw = sc.next();
+		System.out.print("이름 입력>>");
+		String mname = sc.next();
+		System.out.print("나 입력>>");
+		String mage = sc.next();
+
+		
+		UserVO user = new UserVO(); 
+		
+		user.setName(mname);
+		user.setId(mid);
+		user.setPw(mpw);
+		user.setAge(0);
+		
+		try {
+			userinfo.add(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//로그인 
+	public static void login(String id, String pw) {
+		
+	}
+}

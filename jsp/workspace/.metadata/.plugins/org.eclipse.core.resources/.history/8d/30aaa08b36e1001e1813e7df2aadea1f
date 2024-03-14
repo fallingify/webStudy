@@ -1,0 +1,19 @@
+package lamda;
+
+public class Lamda01 {
+
+	public static void main(String[] args) {
+		//함수형 인터페이스 multipleInter 람다식
+		MultipleInter mp = new MultipleInter() {
+
+			@Override
+			public void method01() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		};
+
+	}
+
+}

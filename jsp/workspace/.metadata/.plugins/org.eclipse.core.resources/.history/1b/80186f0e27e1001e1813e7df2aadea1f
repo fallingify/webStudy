@@ -1,0 +1,36 @@
+package list;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
+
+public class ArrayList01 {
+
+	public static void main(String[] args) {
+		//1부터 20까지 정수 중 무작위로 5개의 값을 list에 저장	
+		//랜덤값을 저장하고 숫자맞추는 게임
+			
+		//5번시도 => 포함된 숫자라면 정답
+		//포함된 숫자가 아니라면 오답 출력
+		
+		//5번 시도 후 정답 숫자를 출력하기	
+		Random ran = new Random();
+		
+		ArrayList al= new ArrayList();
+		for(int i=0; i<5; i++) {
+			int ranNum=ran.nextInt(20)+1;
+			al.add(ranNum);
+		}
+		 
+		Iterator<Integer> iter = al.iterator();
+		 while(iter.hasNext()) {
+			 int num = iter.next();
+			 
+			 System.out.println(num);
+		 }
+		 
+		
+		
+	}
+
+}

@@ -1,0 +1,20 @@
+package collection;
+
+import java.util.HashMap;
+
+public class HashMap01 {
+
+	public static void main(String[] args) {
+		HashMap<String, Integer> map = new HashMap<>();
+		System.out.println(map);
+		
+		//추가 put()
+		map.put("A", 1);
+		map.put("B", 2);
+		map.put("C", 3);
+		map.put("D", 4); 		map.put("D", 1);
+		System.out.println(map);
+		System.out.println(map.get("A"));
+
+	}
+}

@@ -1,0 +1,8 @@
+package lamda;
+
+public interface MultipleInter {
+	// 맴버 : 상수, 추상메소드
+	// 디폴트 메소드와 static메소드는 구현됨 
+	
+
+}

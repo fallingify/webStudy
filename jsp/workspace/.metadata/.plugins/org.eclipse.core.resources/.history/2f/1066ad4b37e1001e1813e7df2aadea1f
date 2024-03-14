@@ -1,0 +1,17 @@
+package lamda;
+
+public class Lamda01 {
+
+	public static void main(String[] args) {
+		//함수형 인터페이스 multipleInter 람다식
+		//재정
+		MultipleInter mp1 = (num1, num2) -> num1 * num2;
+			
+		};
+		
+		
+		
+
+	}
+
+}

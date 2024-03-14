@@ -1,0 +1,16 @@
+package collection;
+
+import java.util.HashMap;
+
+public class HashMap01 {
+
+	public static void main(String[] args) {
+		HashMap<String, Integer> map = new HashMap<>();
+		System.out.println(map);
+		
+		//추가 put()
+		
+
+	}
+
+}

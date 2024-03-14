@@ -1,0 +1,20 @@
+package lamda;
+
+public class Lamda01 {
+
+	public static void main(String[] args) {
+		//함수형 인터페이스 multipleInter 람다식
+		//재정
+		MultipleInter mp = new MultipleInter() {
+
+			@Override
+			public void method01(int num1, int num2) {
+				int result = num1 + num2; 
+				return result;
+				
+			}
+		};
+
+	}
+
+}

@@ -1,0 +1,25 @@
+package collection;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HashSet01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Set<Integer> set = new HashSet<>();
+		
+		System.out.println(set);
+		
+		set.add(10);
+		set.add(20);
+		set.add(30);
+		set.add(10); 
+		set.add(10); 
+		System.out.println(set);
+		//객체의 중복여부를 판단할 때 사용하는 메소드: hashCode() equals()
+		
+		
+	}
+
+}

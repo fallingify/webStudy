@@ -1,0 +1,11 @@
+package collection;
+
+public class HashSet {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Set set = new Set();
+		System.out.println(set);
+	}
+
+}
